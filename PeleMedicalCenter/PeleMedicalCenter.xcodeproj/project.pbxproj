@@ -139,6 +139,7 @@
 		F4E77CD21FAC8123007FCAA4 /* PeleMedicalCenter */ = {
 			isa = PBXGroup;
 			children = (
+				F4E77D031FACF5E0007FCAA4 /* controller */,
 				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
 				F4E77CD51FAC8123007FCAA4 /* FirstViewController.swift */,
 				F4E77CD71FAC8123007FCAA4 /* SecondViewController.swift */,
@@ -166,6 +167,13 @@
 				F4E77CF71FAC8123007FCAA4 /* Info.plist */,
 			);
 			path = PeleMedicalCenterUITests;
+			sourceTree = "<group>";
+		};
+		F4E77D031FACF5E0007FCAA4 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
