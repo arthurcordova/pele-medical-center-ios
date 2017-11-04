@@ -10,6 +10,8 @@
 		6C9B93EBA7CA40EB4839EE9B /* Pods_PeleMedicalCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAECA25CB8DD834CC940B3A /* Pods_PeleMedicalCenter.framework */; };
 		8269B67A296AEEC135B73CDC /* Pods_PeleMedicalCenterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB50B138F7A67E5884FB0C2 /* Pods_PeleMedicalCenterTests.framework */; };
 		CD079EE7806374518FB4264F /* Pods_PeleMedicalCenterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497EEEC640CEFA0EA6253883 /* Pods_PeleMedicalCenterUITests.framework */; };
+		F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */; };
+		F47F54141FADFBD800D1A336 /* MedicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */; };
 		F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */; };
 		F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */; };
 		F4E77CD81FAC8123007FCAA4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CD71FAC8123007FCAA4 /* SecondViewController.swift */; };
@@ -46,6 +48,8 @@
 		ADAECA25CB8DD834CC940B3A /* Pods_PeleMedicalCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeleMedicalCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E060FFB3490A726638BB1E9B /* Pods-PeleMedicalCenterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA1977D91BE07882626474EB /* Pods-PeleMedicalCenterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicTableViewCell.swift; sourceTree = "<group>"; };
+		F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicTableViewCell.xib; sourceTree = "<group>"; };
 		F4E77CD01FAC8123007FCAA4 /* PeleMedicalCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeleMedicalCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F47F54101FADFBB500D1A336 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */,
+				F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F4E77CC71FAC8123007FCAA4 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +152,7 @@
 		F4E77CD21FAC8123007FCAA4 /* PeleMedicalCenter */ = {
 			isa = PBXGroup;
 			children = (
+				F47F54101FADFBB500D1A336 /* Cells */,
 				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
 				F4E77CD71FAC8123007FCAA4 /* SecondViewController.swift */,
@@ -284,6 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47F54141FADFBD800D1A336 /* MedicTableViewCell.xib in Resources */,
 				F4E77CE01FAC8123007FCAA4 /* LaunchScreen.storyboard in Resources */,
 				F4E77CDD1FAC8123007FCAA4 /* Assets.xcassets in Resources */,
 				F4E77CDB1FAC8123007FCAA4 /* Main.storyboard in Resources */,
@@ -458,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,
 				F4E77CD81FAC8123007FCAA4 /* SecondViewController.swift in Sources */,
 				F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */,
 				F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */,
