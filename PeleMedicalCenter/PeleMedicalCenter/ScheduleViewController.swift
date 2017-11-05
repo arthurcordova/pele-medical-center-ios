@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  PeleMedicalCenter
 //
 //  Created by Arthur on 03/11/17.
@@ -8,20 +8,23 @@
 
 import UIKit
 
-class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
     
     var fruits:[String] = []
     
-    let cellIdentifier = "cellMedic"
-    let xibIdentifier = "MedicTableViewCell"
+    let cellIdentifier = "cellSchedule"
+    let xibIdentifier = "ScheduleTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         fruits = ["Apple", "Pineapple", "Orange", "Blackberry", "Banana", "Pear", "Kiwi", "Strawberry", "Mango", "Walnut", "Apricot", "Tomato", "Almond", "Date", "Melon", "Water Melon", "Lemon", "Coconut", "Fig", "Passionfruit", "Star Fruit", "Clementin", "Citron", "Cherry", "Cranberry"]
-        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     private func configureTableView() {
@@ -29,11 +32,7 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.register(UINib(nibName: xibIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 81
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        tableView.separatorStyle = .none
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,25 +44,25 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MedicTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ScheduleTableViewCell
         
-        // Fetch Fruit
-        let fruit = fruits[indexPath.row]
-
-        cell.name?.text = fruit
-        
-        let imageHeight = cell.avatar?.frame.height;
-        cell.avatar?.layer.borderWidth = 0.5
-        cell.avatar?.layer.masksToBounds = false
-        cell.avatar?.layer.borderColor = UIColor.lightGray.cgColor
-        cell.avatar?.layer.cornerRadius = (imageHeight!)/2
-        cell.avatar?.clipsToBounds = true
-       
-        
-        // Configure Cell
-//        cell.textLabel?.text = fruit
+//        // Fetch Fruit
+//        let fruit = fruits[indexPath.row]
+//
+//        cell.name?.text = fruit
+//
+//        let imageHeight = cell.avatar?.frame.height;
+//        cell.avatar?.layer.borderWidth = 0.5
+//        cell.avatar?.layer.masksToBounds = false
+//        cell.avatar?.layer.borderColor = UIColor.lightGray.cgColor
+//        cell.avatar?.layer.cornerRadius = (imageHeight!)/2
+//        cell.avatar?.clipsToBounds = true
+//
+//
+//        // Configure Cell
+//        //        cell.textLabel?.text = fruit
         
         return cell
     }
-
 }
+
