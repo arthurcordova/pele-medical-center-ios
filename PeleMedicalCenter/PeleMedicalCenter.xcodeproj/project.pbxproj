@@ -10,6 +10,7 @@
 		6C9B93EBA7CA40EB4839EE9B /* Pods_PeleMedicalCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAECA25CB8DD834CC940B3A /* Pods_PeleMedicalCenter.framework */; };
 		8269B67A296AEEC135B73CDC /* Pods_PeleMedicalCenterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB50B138F7A67E5884FB0C2 /* Pods_PeleMedicalCenterTests.framework */; };
 		CD079EE7806374518FB4264F /* Pods_PeleMedicalCenterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497EEEC640CEFA0EA6253883 /* Pods_PeleMedicalCenterUITests.framework */; };
+		F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */; };
 		F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */; };
 		F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */; };
 		F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */; };
@@ -50,10 +51,12 @@
 		ADAECA25CB8DD834CC940B3A /* Pods_PeleMedicalCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeleMedicalCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E060FFB3490A726638BB1E9B /* Pods-PeleMedicalCenterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA1977D91BE07882626474EB /* Pods-PeleMedicalCenterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicTableViewCell.swift; sourceTree = "<group>"; };
 		F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicTableViewCell.xib; sourceTree = "<group>"; };
+		F4B78A6E1FBB321800490C1D /* Alamofire-alamofire5 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Alamofire-alamofire5"; path = "../../../../Downloads/Alamofire-alamofire5"; sourceTree = "<group>"; };
 		F4E77CD01FAC8123007FCAA4 /* PeleMedicalCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeleMedicalCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 		A6A56E520B19DA36001191DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4B78A6E1FBB321800490C1D /* Alamofire-alamofire5 */,
 				ADAECA25CB8DD834CC940B3A /* Pods_PeleMedicalCenter.framework */,
 				0DB50B138F7A67E5884FB0C2 /* Pods_PeleMedicalCenterTests.framework */,
 				497EEEC640CEFA0EA6253883 /* Pods_PeleMedicalCenterUITests.framework */,
@@ -161,6 +165,7 @@
 				F47F54101FADFBB500D1A336 /* Cells */,
 				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
+				F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */,
 				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
 				F4E77CD91FAC8123007FCAA4 /* Main.storyboard */,
 				F4E77CDC1FAC8123007FCAA4 /* Assets.xcassets */,
@@ -449,9 +454,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PeleMedicalCenter/Pods-PeleMedicalCenter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -480,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
 				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,
 				F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */,
 				F4E77CD81FAC8123007FCAA4 /* ScheduleViewController.swift in Sources */,
@@ -654,6 +665,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T4H78CRT5T;
 				INFOPLIST_FILE = PeleMedicalCenter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobway.pelemedicalcenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -670,6 +682,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T4H78CRT5T;
 				INFOPLIST_FILE = PeleMedicalCenter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobway.pelemedicalcenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";

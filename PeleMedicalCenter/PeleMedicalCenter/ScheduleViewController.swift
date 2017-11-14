@@ -12,6 +12,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var topHeader: NSLayoutConstraint!
+    
+    
     var fruits:[String] = []
     
     let cellIdentifier = "cellSchedule"
@@ -20,7 +23,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        
         fruits = ["Apple", "Pineapple", "Orange", "Blackberry", "Banana", "Pear", "Kiwi", "Strawberry", "Mango", "Walnut", "Apricot", "Tomato", "Almond", "Date", "Melon", "Water Melon", "Lemon", "Coconut", "Fig", "Passionfruit", "Star Fruit", "Clementin", "Citron", "Cherry", "Cranberry"]
+        
+//        Alamofire.request(.GET, "https://us-central1-scheduling-tracker.cloudfunctions.net/getPhysicians")
+//            .response { request, response, data, error in
+//                print(request)
+//                print(response)
+//                print(error)
+//        }
     }
 
     override func didReceiveMemoryWarning() {
