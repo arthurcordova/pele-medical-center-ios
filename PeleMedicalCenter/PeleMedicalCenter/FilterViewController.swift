@@ -24,7 +24,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        
+        collectionView.allowsMultipleSelection = true
         collectionView.register(UINib(nibName: xibIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         
         fruits = ["CardiologistaCardiologista", "Oftalmologista", "Dermatologista", "Pediatra"]
