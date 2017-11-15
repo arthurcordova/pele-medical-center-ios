@@ -13,14 +13,16 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var tableView: UITableView!
     
     var fruits:[String] = []
+    var selectedMedic = ""
     
     let cellIdentifier = "cellMedic"
     let xibIdentifier = "MedicTableViewCell"
+    let segueDetail = "segue_medic_detail"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        fruits = ["Apple", "Pineapple", "Orange", "Blackberry", "Banana", "Pear", "Kiwi", "Strawberry", "Mango", "Walnut", "Apricot", "Tomato", "Almond", "Date", "Melon", "Water Melon", "Lemon", "Coconut", "Fig", "Passionfruit", "Star Fruit", "Clementin", "Citron", "Cherry", "Cranberry"]
+        fruits = ["Apple", "Pineapple", "Orange", "Blackberry", "Banana", "Pear", "Kiwi", "Strawberry", "Mango", "Walnut"]
         
     }
     
@@ -29,7 +31,7 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.register(UINib(nibName: xibIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 81
-        
+        tableView.indicatorStyle = .white
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,7 +49,6 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MedicTableViewCell
         
-        // Fetch Fruit
         let fruit = fruits[indexPath.row]
 
         cell.name?.text = fruit
@@ -58,12 +59,22 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.avatar?.layer.borderColor = UIColor.lightGray.cgColor
         cell.avatar?.layer.cornerRadius = (imageHeight!)/2
         cell.avatar?.clipsToBounds = true
-       
-        
-        // Configure Cell
-//        cell.textLabel?.text = fruit
         
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMedic = fruits[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: false)
+        self.performSegue(withIdentifier: segueDetail, sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == segueDetail) {
+            let nav = segue.destination as! UINavigationController
+            let controller = nav.topViewController as! MedicDetailViewController
+            controller.medic = selectedMedic
+        }
+    }
+    
 }

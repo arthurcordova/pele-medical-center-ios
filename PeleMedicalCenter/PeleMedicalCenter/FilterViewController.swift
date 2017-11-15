@@ -27,7 +27,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.allowsMultipleSelection = true
         collectionView.register(UINib(nibName: xibIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         
-        fruits = ["CardiologistaCardiologista", "Oftalmologista", "Dermatologista", "Pediatra"]
+        fruits = ["Cardiologista", "Oftalmologista", "Dermatologista", "Pediatra", "Clinico Geral"]
     }
 
     override func didReceiveMemoryWarning() {

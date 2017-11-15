@@ -13,6 +13,7 @@
 		F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */; };
 		F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */; };
 		F45AFF411FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */; };
+		F45AFF431FBCDCB4007D1E57 /* MedicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */; };
 		F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */; };
 		F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */; };
 		F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */; };
@@ -56,6 +57,7 @@
 		F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyCollectionViewCell.swift; sourceTree = "<group>"; };
 		F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialtyCollectionViewCell.xib; sourceTree = "<group>"; };
+		F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicDetailViewController.swift; sourceTree = "<group>"; };
 		F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				F4E77CDC1FAC8123007FCAA4 /* Assets.xcassets */,
 				F4E77CDE1FAC8123007FCAA4 /* LaunchScreen.storyboard */,
 				F4E77CE11FAC8123007FCAA4 /* Info.plist */,
+				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
 			);
 			path = PeleMedicalCenter;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F45AFF431FBCDCB4007D1E57 /* MedicDetailViewController.swift in Sources */,
 				F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */,
 				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
 				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,
