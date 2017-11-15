@@ -11,6 +11,8 @@
 		8269B67A296AEEC135B73CDC /* Pods_PeleMedicalCenterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB50B138F7A67E5884FB0C2 /* Pods_PeleMedicalCenterTests.framework */; };
 		CD079EE7806374518FB4264F /* Pods_PeleMedicalCenterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497EEEC640CEFA0EA6253883 /* Pods_PeleMedicalCenterUITests.framework */; };
 		F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */; };
+		F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */; };
+		F45AFF411FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */; };
 		F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */; };
 		F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */; };
 		F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */; };
@@ -52,6 +54,8 @@
 		E060FFB3490A726638BB1E9B /* Pods-PeleMedicalCenterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA1977D91BE07882626474EB /* Pods-PeleMedicalCenterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyCollectionViewCell.swift; sourceTree = "<group>"; };
+		F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialtyCollectionViewCell.xib; sourceTree = "<group>"; };
 		F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicTableViewCell.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */,
 				F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */,
 				F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */,
+				F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */,
+				F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47F54141FADFBD800D1A336 /* MedicTableViewCell.xib in Resources */,
+				F45AFF411FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib in Resources */,
 				F4E77CE01FAC8123007FCAA4 /* LaunchScreen.storyboard in Resources */,
 				F4E77CDD1FAC8123007FCAA4 /* Assets.xcassets in Resources */,
 				F4E77CDB1FAC8123007FCAA4 /* Main.storyboard in Resources */,
@@ -490,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */,
 				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
 				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,
 				F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */,

@@ -342,18 +342,20 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9f3-1S-2dS">
-                                        <rect key="frame" x="8" y="178" width="359" height="200"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9f3-1S-2dS">
+                                        <rect key="frame" x="8" y="178" width="367" height="120"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gk7-3z-dPy">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="zJB-BL-771"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZZR-hU-oCv">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="z0l-E4-n1M">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellSpecialty" id="z0l-E4-n1M" customClass="SpecialtyCollectionViewCell" customModule="PeleMedicalCenter" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -366,12 +368,15 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="9f3-1S-2dS" firstAttribute="leading" secondItem="gLG-Uh-CsX" secondAttribute="leading" constant="8" id="3mA-Zk-WP1"/>
                                     <constraint firstItem="CpN-MY-dJs" firstAttribute="leading" secondItem="gLG-Uh-CsX" secondAttribute="leading" id="ECc-D4-SyK"/>
                                     <constraint firstItem="6SH-iC-5ky" firstAttribute="leading" secondItem="gLG-Uh-CsX" secondAttribute="leading" id="JNW-nV-9yC"/>
                                     <constraint firstItem="6SH-iC-5ky" firstAttribute="top" secondItem="CpN-MY-dJs" secondAttribute="bottom" constant="1" id="LKl-Ra-eAc"/>
                                     <constraint firstAttribute="trailing" secondItem="6SH-iC-5ky" secondAttribute="trailing" id="M4m-Ya-MM6"/>
                                     <constraint firstItem="ynb-BT-Tcg" firstAttribute="top" secondItem="6SH-iC-5ky" secondAttribute="bottom" constant="32" id="SNE-2V-XoN"/>
                                     <constraint firstAttribute="trailing" secondItem="ynb-BT-Tcg" secondAttribute="trailing" constant="8" id="Yqz-rc-2yf"/>
+                                    <constraint firstAttribute="trailing" secondItem="9f3-1S-2dS" secondAttribute="trailing" id="aQk-h0-wDN"/>
+                                    <constraint firstItem="9f3-1S-2dS" firstAttribute="top" secondItem="ynb-BT-Tcg" secondAttribute="bottom" constant="8" id="caE-F4-GPe"/>
                                     <constraint firstItem="ynb-BT-Tcg" firstAttribute="leading" secondItem="gLG-Uh-CsX" secondAttribute="leading" constant="8" id="lQE-ny-tpb"/>
                                     <constraint firstItem="CpN-MY-dJs" firstAttribute="top" secondItem="gLG-Uh-CsX" secondAttribute="top" constant="32" id="laW-ZP-1bS"/>
                                     <constraint firstAttribute="trailing" secondItem="CpN-MY-dJs" secondAttribute="trailing" id="lbU-aF-QAU"/>
@@ -398,6 +403,9 @@
                             <color key="tintColor" red="0.47058823529999999" green="0.23529411759999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="9f3-1S-2dS" id="gSZ-IR-wZr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2a-ue-nr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
