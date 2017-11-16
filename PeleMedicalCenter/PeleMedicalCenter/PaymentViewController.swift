@@ -11,10 +11,12 @@ import UIKit
 class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var buttonSave: UIBarButtonItem!
     
     var payments:[String] = []
     var selectedPayment = ""
     
+
     let cellIdentifier = "cellPayment"
     let xibIdentifier = "PaymentTableViewCell"
     
@@ -34,6 +36,10 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.rowHeight = 42
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        buttonSave.isEnabled = false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -53,5 +59,10 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.labelPaymentName?.text = payment
         return cell
     }
-   
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        buttonSave.isEnabled = true
+    }
+    
+    
 }
