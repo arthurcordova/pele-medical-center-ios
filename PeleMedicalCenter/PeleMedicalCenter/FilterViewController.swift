@@ -12,8 +12,6 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet var collectionView: UICollectionView!
     
-    @IBOutlet var flowLayout: UICollectionViewFlowLayout!
-    
     let cellIdentifier = "cellSpecialty"
     let xibIdentifier = "SpecialtyCollectionViewCell"
     

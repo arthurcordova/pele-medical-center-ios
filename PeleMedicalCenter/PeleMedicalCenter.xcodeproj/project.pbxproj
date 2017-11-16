@@ -14,6 +14,8 @@
 		F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */; };
 		F45AFF411FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */; };
 		F45AFF431FBCDCB4007D1E57 /* MedicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */; };
+		F45AFF481FBCFAAF007D1E57 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF461FBCFAAF007D1E57 /* TimeCollectionViewCell.swift */; };
+		F45AFF491FBCFAAF007D1E57 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AFF471FBCFAAF007D1E57 /* TimeCollectionViewCell.xib */; };
 		F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */; };
 		F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */; };
 		F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */; };
@@ -58,6 +60,8 @@
 		F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyCollectionViewCell.swift; sourceTree = "<group>"; };
 		F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialtyCollectionViewCell.xib; sourceTree = "<group>"; };
 		F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicDetailViewController.swift; sourceTree = "<group>"; };
+		F45AFF461FBCFAAF007D1E57 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		F45AFF471FBCFAAF007D1E57 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicTableViewCell.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */,
 				F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */,
 				F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */,
+				F45AFF461FBCFAAF007D1E57 /* TimeCollectionViewCell.swift */,
+				F45AFF471FBCFAAF007D1E57 /* TimeCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -173,13 +179,13 @@
 				F47F54101FADFBB500D1A336 /* Cells */,
 				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
+				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
 				F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */,
 				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
 				F4E77CD91FAC8123007FCAA4 /* Main.storyboard */,
-				F4E77CDC1FAC8123007FCAA4 /* Assets.xcassets */,
 				F4E77CDE1FAC8123007FCAA4 /* LaunchScreen.storyboard */,
+				F4E77CDC1FAC8123007FCAA4 /* Assets.xcassets */,
 				F4E77CE11FAC8123007FCAA4 /* Info.plist */,
-				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
 			);
 			path = PeleMedicalCenter;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				F4E77CDD1FAC8123007FCAA4 /* Assets.xcassets in Resources */,
 				F4E77CDB1FAC8123007FCAA4 /* Main.storyboard in Resources */,
 				F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */,
+				F45AFF491FBCFAAF007D1E57 /* TimeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +511,7 @@
 				F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */,
 				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
 				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,
+				F45AFF481FBCFAAF007D1E57 /* TimeCollectionViewCell.swift in Sources */,
 				F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */,
 				F4E77CD81FAC8123007FCAA4 /* ScheduleViewController.swift in Sources */,
 				F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */,
@@ -682,7 +690,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobway.pelemedicalcenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -699,7 +707,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobway.pelemedicalcenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
