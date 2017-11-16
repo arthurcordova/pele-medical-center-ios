@@ -51,4 +51,8 @@ class PatientRecordViewController: UIViewController {
         }
     }
   
+    @IBAction func closeView(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

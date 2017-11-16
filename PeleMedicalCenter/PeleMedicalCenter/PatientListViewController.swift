@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 
 class PatientListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var buttonNext: UIBarButtonItem!
     
     var patients:[PatientModel] = []
     let cellIdentifier = "cellPatient"
@@ -28,6 +30,7 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidAppear(_ animated: Bool) {
         patients.removeAll()
+        buttonNext.isEnabled = false
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Patient")
@@ -71,6 +74,10 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
         cell.labelGender?.text = patient.gender
    
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        buttonNext.isEnabled = true
     }
    
 }
