@@ -22,6 +22,9 @@
 		F45AFF741FBD24A0007D1E57 /* PatientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF731FBD24A0007D1E57 /* PatientModel.swift */; };
 		F45AFF771FBD2882007D1E57 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF751FBD2882007D1E57 /* PatientTableViewCell.swift */; };
 		F45AFF781FBD2882007D1E57 /* PatientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AFF761FBD2882007D1E57 /* PatientTableViewCell.xib */; };
+		F465C8011FBDE3CE00321A99 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465C7FF1FBDE3CE00321A99 /* PaymentTableViewCell.swift */; };
+		F465C8021FBDE3CE00321A99 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F465C8001FBDE3CE00321A99 /* PaymentTableViewCell.xib */; };
+		F465C8041FBDE50400321A99 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465C8031FBDE50400321A99 /* PaymentViewController.swift */; };
 		F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */; };
 		F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */; };
 		F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */; };
@@ -74,6 +77,9 @@
 		F45AFF731FBD24A0007D1E57 /* PatientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientModel.swift; sourceTree = "<group>"; };
 		F45AFF751FBD2882007D1E57 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
 		F45AFF761FBD2882007D1E57 /* PatientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableViewCell.xib; sourceTree = "<group>"; };
+		F465C7FF1FBDE3CE00321A99 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
+		F465C8001FBDE3CE00321A99 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
+		F465C8031FBDE50400321A99 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicTableViewCell.swift; sourceTree = "<group>"; };
@@ -169,6 +175,8 @@
 				F45AFF471FBCFAAF007D1E57 /* TimeCollectionViewCell.xib */,
 				F45AFF751FBD2882007D1E57 /* PatientTableViewCell.swift */,
 				F45AFF761FBD2882007D1E57 /* PatientTableViewCell.xib */,
+				F465C7FF1FBDE3CE00321A99 /* PaymentTableViewCell.swift */,
+				F465C8001FBDE3CE00321A99 /* PaymentTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 				F47F54101FADFBB500D1A336 /* Cells */,
 				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
+				F465C8031FBDE50400321A99 /* PaymentViewController.swift */,
 				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
 				F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */,
 				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
@@ -350,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F465C8021FBDE3CE00321A99 /* PaymentTableViewCell.xib in Resources */,
 				F47F54141FADFBD800D1A336 /* MedicTableViewCell.xib in Resources */,
 				F45AFF781FBD2882007D1E57 /* PatientTableViewCell.xib in Resources */,
 				F45AFF411FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib in Resources */,
@@ -537,8 +547,10 @@
 				F45AFF431FBCDCB4007D1E57 /* MedicDetailViewController.swift in Sources */,
 				F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */,
 				F45AFF711FBD1F61007D1E57 /* PatientListViewController.swift in Sources */,
+				F465C8041FBDE50400321A99 /* PaymentViewController.swift in Sources */,
 				F45AFF741FBD24A0007D1E57 /* PatientModel.swift in Sources */,
 				F45AFF4C1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld in Sources */,
+				F465C8011FBDE3CE00321A99 /* PaymentTableViewCell.swift in Sources */,
 				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
 				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,
 				F45AFF481FBCFAAF007D1E57 /* TimeCollectionViewCell.swift in Sources */,
