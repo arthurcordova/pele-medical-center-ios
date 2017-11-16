@@ -57,7 +57,7 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    s
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.patients.count
     }
