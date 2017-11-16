@@ -16,6 +16,12 @@
 		F45AFF431FBCDCB4007D1E57 /* MedicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */; };
 		F45AFF481FBCFAAF007D1E57 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF461FBCFAAF007D1E57 /* TimeCollectionViewCell.swift */; };
 		F45AFF491FBCFAAF007D1E57 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AFF471FBCFAAF007D1E57 /* TimeCollectionViewCell.xib */; };
+		F45AFF4C1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF4A1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld */; };
+		F45AFF4E1FBD1B86007D1E57 /* PatientRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */; };
+		F45AFF711FBD1F61007D1E57 /* PatientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */; };
+		F45AFF741FBD24A0007D1E57 /* PatientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF731FBD24A0007D1E57 /* PatientModel.swift */; };
+		F45AFF771FBD2882007D1E57 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF751FBD2882007D1E57 /* PatientTableViewCell.swift */; };
+		F45AFF781FBD2882007D1E57 /* PatientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AFF761FBD2882007D1E57 /* PatientTableViewCell.xib */; };
 		F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */; };
 		F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */; };
 		F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */; };
@@ -62,6 +68,12 @@
 		F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicDetailViewController.swift; sourceTree = "<group>"; };
 		F45AFF461FBCFAAF007D1E57 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F45AFF471FBCFAAF007D1E57 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
+		F45AFF4B1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataPatientModel.xcdatamodel; sourceTree = "<group>"; };
+		F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientRecordViewController.swift; sourceTree = "<group>"; };
+		F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListViewController.swift; sourceTree = "<group>"; };
+		F45AFF731FBD24A0007D1E57 /* PatientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientModel.swift; sourceTree = "<group>"; };
+		F45AFF751FBD2882007D1E57 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
+		F45AFF761FBD2882007D1E57 /* PatientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PatientTableViewCell.xib; sourceTree = "<group>"; };
 		F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicTableViewCell.swift; sourceTree = "<group>"; };
@@ -136,6 +148,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F45AFF721FBD243F007D1E57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F45AFF731FBD24A0007D1E57 /* PatientModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F47F54101FADFBB500D1A336 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +167,8 @@
 				F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */,
 				F45AFF461FBCFAAF007D1E57 /* TimeCollectionViewCell.swift */,
 				F45AFF471FBCFAAF007D1E57 /* TimeCollectionViewCell.xib */,
+				F45AFF751FBD2882007D1E57 /* PatientTableViewCell.swift */,
+				F45AFF761FBD2882007D1E57 /* PatientTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -176,16 +198,20 @@
 		F4E77CD21FAC8123007FCAA4 /* PeleMedicalCenter */ = {
 			isa = PBXGroup;
 			children = (
+				F45AFF721FBD243F007D1E57 /* Model */,
 				F47F54101FADFBB500D1A336 /* Cells */,
 				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
 				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
+				F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */,
+				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
 				F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */,
 				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
 				F4E77CD91FAC8123007FCAA4 /* Main.storyboard */,
 				F4E77CDE1FAC8123007FCAA4 /* LaunchScreen.storyboard */,
 				F4E77CDC1FAC8123007FCAA4 /* Assets.xcassets */,
 				F4E77CE11FAC8123007FCAA4 /* Info.plist */,
+				F45AFF4A1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld */,
 			);
 			path = PeleMedicalCenter;
 			sourceTree = "<group>";
@@ -325,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47F54141FADFBD800D1A336 /* MedicTableViewCell.xib in Resources */,
+				F45AFF781FBD2882007D1E57 /* PatientTableViewCell.xib in Resources */,
 				F45AFF411FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib in Resources */,
 				F4E77CE01FAC8123007FCAA4 /* LaunchScreen.storyboard in Resources */,
 				F4E77CDD1FAC8123007FCAA4 /* Assets.xcassets in Resources */,
@@ -509,9 +536,14 @@
 			files = (
 				F45AFF431FBCDCB4007D1E57 /* MedicDetailViewController.swift in Sources */,
 				F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */,
+				F45AFF711FBD1F61007D1E57 /* PatientListViewController.swift in Sources */,
+				F45AFF741FBD24A0007D1E57 /* PatientModel.swift in Sources */,
+				F45AFF4C1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld in Sources */,
 				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
 				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,
 				F45AFF481FBCFAAF007D1E57 /* TimeCollectionViewCell.swift in Sources */,
+				F45AFF4E1FBD1B86007D1E57 /* PatientRecordViewController.swift in Sources */,
+				F45AFF771FBD2882007D1E57 /* PatientTableViewCell.swift in Sources */,
 				F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */,
 				F4E77CD81FAC8123007FCAA4 /* ScheduleViewController.swift in Sources */,
 				F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */,
@@ -821,6 +853,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F45AFF4A1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F45AFF4B1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodel */,
+			);
+			currentVersion = F45AFF4B1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodel */;
+			path = CoreDataPatientModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F4E77CC81FAC8123007FCAA4 /* Project object */;
 }
