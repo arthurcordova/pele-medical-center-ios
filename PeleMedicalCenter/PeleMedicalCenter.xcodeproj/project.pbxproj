@@ -10,6 +10,7 @@
 		6C9B93EBA7CA40EB4839EE9B /* Pods_PeleMedicalCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAECA25CB8DD834CC940B3A /* Pods_PeleMedicalCenter.framework */; };
 		8269B67A296AEEC135B73CDC /* Pods_PeleMedicalCenterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB50B138F7A67E5884FB0C2 /* Pods_PeleMedicalCenterTests.framework */; };
 		CD079EE7806374518FB4264F /* Pods_PeleMedicalCenterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497EEEC640CEFA0EA6253883 /* Pods_PeleMedicalCenterUITests.framework */; };
+		F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418ACD01FBE65160048DA9C /* DesignableButton.swift */; };
 		F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */; };
 		F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */; };
 		F45AFF411FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */; };
@@ -67,6 +68,7 @@
 		ADAECA25CB8DD834CC940B3A /* Pods_PeleMedicalCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeleMedicalCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E060FFB3490A726638BB1E9B /* Pods-PeleMedicalCenterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA1977D91BE07882626474EB /* Pods-PeleMedicalCenterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F418ACD01FBE65160048DA9C /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyCollectionViewCell.swift; sourceTree = "<group>"; };
 		F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialtyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F4973E191FBE3CBE00B2655F /* DesignableView.swift */,
+				F418ACD01FBE65160048DA9C /* DesignableButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -223,13 +226,13 @@
 				F47F54101FADFBB500D1A336 /* Cells */,
 				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
+				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
+				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
+				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
 				F465C8031FBDE50400321A99 /* PaymentViewController.swift */,
 				F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */,
-				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
 				F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */,
-				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
 				F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */,
-				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
 				F4E77CD91FAC8123007FCAA4 /* Main.storyboard */,
 				F4E77CDE1FAC8123007FCAA4 /* LaunchScreen.storyboard */,
 				F4E77CDC1FAC8123007FCAA4 /* Assets.xcassets */,
@@ -574,6 +577,7 @@
 				F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */,
 				F4E77CD81FAC8123007FCAA4 /* ScheduleViewController.swift in Sources */,
 				F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */,
+				F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */,
 				F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */,
 				F4973E1A1FBE3CBE00B2655F /* DesignableView.swift in Sources */,
 			);
@@ -747,7 +751,7 @@
 				INFOPLIST_FILE = PeleMedicalCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobway.pelemedicalcenter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobway.PeleMedicalCenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -764,7 +768,7 @@
 				INFOPLIST_FILE = PeleMedicalCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mobway.pelemedicalcenter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobway.PeleMedicalCenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

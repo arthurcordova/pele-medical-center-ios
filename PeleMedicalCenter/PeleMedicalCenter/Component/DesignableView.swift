@@ -16,4 +16,27 @@ import UIKit
         }
     }
     
+    @IBInspectable var shadowColor: CGColor =  UIColor.black.cgColor  {
+        didSet {
+            self.layer.shadowColor = shadowColor
+        }
+    }
+    
+    @IBInspectable var shadowOpacity: Float =  0  {
+        didSet {
+            self.layer.shadowOpacity = shadowOpacity
+        }
+    }
+    
+    @IBInspectable var shadowOffset: CGSize =  CGSize.zero {
+        didSet {
+            self.layer.shadowOffset = shadowOffset
+        }
+    }
+    
+    @IBInspectable var shadowRadius: CGFloat =  0 {
+        didSet {
+            self.layer.shadowRadius = shadowRadius
+        }
+    }
 }

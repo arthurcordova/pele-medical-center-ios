@@ -25,6 +25,10 @@ class ScheduleFinalDetailsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func confirmSchedule(_ sender: Any) {
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
