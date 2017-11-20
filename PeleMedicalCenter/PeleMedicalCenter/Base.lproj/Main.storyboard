@@ -721,7 +721,7 @@
                                         <constraint firstItem="FFm-0w-Pst" firstAttribute="top" secondItem="Bh2-Dm-ShH" secondAttribute="bottom" constant="-40" id="id0-pd-lYc"/>
                                     </constraints>
                                 </view>
-                                <blurEffect style="light"/>
+                                <blurEffect style="prominent"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -736,7 +736,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlY-1a-iSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-572" y="3941.3793103448279"/>
+            <point key="canvasLocation" x="1135" y="1871"/>
         </scene>
         <!--Paciente-->
         <scene sceneID="NMv-8X-Sl2">
@@ -1020,17 +1020,6 @@
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="R6t-AF-UtQ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlO-GB-ihb">
-                                        <rect key="frame" x="299" y="32" width="76" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="Lds-7k-rj5"/>
-                                            <constraint firstAttribute="width" constant="76" id="dJl-K0-EG0"/>
-                                        </constraints>
-                                        <state key="normal" image="ic_filter"/>
-                                        <connections>
-                                            <segue destination="lC4-Xb-h3K" kind="show" id="89V-AC-Cij"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-d8-OEg">
                                         <rect key="frame" x="16" y="86" width="343" height="30"/>
                                         <constraints>
@@ -1045,12 +1034,10 @@
                                 <color key="backgroundColor" red="0.98431372549019602" green="0.89803921568627454" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="EX2-x7-zmY"/>
-                                    <constraint firstAttribute="trailing" secondItem="TlO-GB-ihb" secondAttribute="trailing" id="IL7-qC-Qha"/>
                                     <constraint firstAttribute="trailing" secondItem="QAx-d8-OEg" secondAttribute="trailing" constant="16" id="QXo-ag-o2J"/>
                                     <constraint firstAttribute="bottom" secondItem="QAx-d8-OEg" secondAttribute="bottom" constant="4" id="SqI-Bq-hMa"/>
                                     <constraint firstItem="QAx-d8-OEg" firstAttribute="leading" secondItem="w4w-ql-asb" secondAttribute="leading" constant="16" id="Vc3-x7-F25"/>
                                     <constraint firstItem="QAx-d8-OEg" firstAttribute="centerX" secondItem="w4w-ql-asb" secondAttribute="centerX" id="XV8-8g-4Dj"/>
-                                    <constraint firstItem="TlO-GB-ihb" firstAttribute="top" secondItem="w4w-ql-asb" secondAttribute="top" constant="32" id="dwi-PX-pEx"/>
                                     <constraint firstItem="R6t-AF-UtQ" firstAttribute="top" secondItem="w4w-ql-asb" secondAttribute="top" id="fgH-Ub-Xbs"/>
                                     <constraint firstAttribute="bottom" secondItem="R6t-AF-UtQ" secondAttribute="bottom" id="iBO-lF-bOf"/>
                                     <constraint firstItem="R6t-AF-UtQ" firstAttribute="leading" secondItem="w4w-ql-asb" secondAttribute="leading" id="xxP-UJ-akI"/>
@@ -1088,6 +1075,7 @@
                     <connections>
                         <outlet property="tableView" destination="z5A-bt-Rhq" id="wB2-dU-Ygy"/>
                         <outlet property="topHeader" destination="Zu7-pI-XiT" id="7Do-PE-Sjo"/>
+                        <segue destination="PYD-B3-n0n" kind="presentation" identifier="segue_schedule_detail" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Cqg-0m-KNQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -1541,6 +1529,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1Hu-k7-Y6L"/>
-        <segue reference="dFY-Zw-zxz"/>
+        <segue reference="Cqg-0m-KNQ"/>
     </inferredMetricsTieBreakers>
 </document>

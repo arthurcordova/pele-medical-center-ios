@@ -19,6 +19,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     let cellIdentifier = "cellSchedule"
     let xibIdentifier = "ScheduleTableViewCell"
+    let segueDetail = "segue_schedule_detail"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,5 +76,19 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        self.performSegue(withIdentifier: segueDetail, sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == segueDetail) {
+//            let nav = segue.destination as! UINavigationController
+//            let controller = nav.topViewController as! MedicDetailViewController
+//            controller.medic = selectedMedic
+        }
+    }
+    
 }
 
