@@ -26,7 +26,9 @@ class ScheduleFinalDetailsViewController: UIViewController {
     }
     
     @IBAction func confirmSchedule(_ sender: Any) {
+        StateMainView.setViewIndex(index: 1)
         self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+//        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     /*

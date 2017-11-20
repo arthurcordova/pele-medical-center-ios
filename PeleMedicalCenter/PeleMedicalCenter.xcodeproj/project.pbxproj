@@ -32,6 +32,8 @@
 		F47F54141FADFBD800D1A336 /* MedicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */; };
 		F4973E1A1FBE3CBE00B2655F /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4973E191FBE3CBE00B2655F /* DesignableView.swift */; };
 		F4973E1C1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */; };
+		F4CC13621FC3210700DF989F /* StateMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CC13611FC3210700DF989F /* StateMainView.swift */; };
+		F4CC13641FC3221D00DF989F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CC13631FC3221D00DF989F /* MainViewController.swift */; };
 		F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */; };
 		F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */; };
 		F4E77CD81FAC8123007FCAA4 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */; };
@@ -91,6 +93,8 @@
 		F4973E191FBE3CBE00B2655F /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleFinalDetailsViewController.swift; sourceTree = "<group>"; };
 		F4B78A6E1FBB321800490C1D /* Alamofire-alamofire5 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Alamofire-alamofire5"; path = "../../../../Downloads/Alamofire-alamofire5"; sourceTree = "<group>"; };
+		F4CC13611FC3210700DF989F /* StateMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMainView.swift; sourceTree = "<group>"; };
+		F4CC13631FC3221D00DF989F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F4E77CD01FAC8123007FCAA4 /* PeleMedicalCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeleMedicalCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				F45AFF731FBD24A0007D1E57 /* PatientModel.swift */,
+				F4CC13611FC3210700DF989F /* StateMainView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,9 +233,9 @@
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
 				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
 				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
+				F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */,
 				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
 				F465C8031FBDE50400321A99 /* PaymentViewController.swift */,
-				F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */,
 				F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */,
 				F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */,
 				F4E77CD91FAC8123007FCAA4 /* Main.storyboard */,
@@ -238,6 +243,7 @@
 				F4E77CDC1FAC8123007FCAA4 /* Assets.xcassets */,
 				F4E77CE11FAC8123007FCAA4 /* Info.plist */,
 				F45AFF4A1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld */,
+				F4CC13631FC3221D00DF989F /* MainViewController.swift */,
 			);
 			path = PeleMedicalCenter;
 			sourceTree = "<group>";
@@ -561,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4CC13641FC3221D00DF989F /* MainViewController.swift in Sources */,
 				F45AFF431FBCDCB4007D1E57 /* MedicDetailViewController.swift in Sources */,
 				F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */,
 				F45AFF711FBD1F61007D1E57 /* PatientListViewController.swift in Sources */,
@@ -572,6 +579,7 @@
 				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
 				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,
 				F45AFF481FBCFAAF007D1E57 /* TimeCollectionViewCell.swift in Sources */,
+				F4CC13621FC3210700DF989F /* StateMainView.swift in Sources */,
 				F45AFF4E1FBD1B86007D1E57 /* PatientRecordViewController.swift in Sources */,
 				F45AFF771FBD2882007D1E57 /* PatientTableViewCell.swift in Sources */,
 				F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */,
