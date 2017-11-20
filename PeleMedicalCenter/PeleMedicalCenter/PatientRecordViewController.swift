@@ -33,6 +33,14 @@ class PatientRecordViewController: UIViewController {
         newPatient.setValue(inputName.text, forKey: "name")
         newPatient.setValue(inputGender.text, forKey: "gender")
         
+        var dateString = "01/01/2009"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/mm/yyyy"
+        dateFormatter.locale = Locale.init(identifier: "pt_BR")
+        let dateObj = dateFormatter.date(from: dateString)
+       
+        newPatient.setValue(dateObj, forKey: "birth")
+        
         do {
             try context.save()
             self.dismiss(animated: true, completion: nil)

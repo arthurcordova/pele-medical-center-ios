@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G1036" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Insurance" representedClassName="Insurance" syncable="YES" codeGenerationType="class">
         <attribute name="card" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,8 +11,18 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Schedule" representedClassName="Schedule" syncable="YES" codeGenerationType="class">
+        <attribute name="patient_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phycisian_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="physician_specialty" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="register_status" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="schedule_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="schedule_payment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schedule_status" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Patient" positionX="72" positionY="170" width="128" height="103"/>
         <element name="Insurance" positionX="-110" positionY="92" width="128" height="88"/>
+        <element name="Patient" positionX="72" positionY="170" width="128" height="103"/>
+        <element name="Schedule" positionX="-18" positionY="162" width="128" height="150"/>
     </elements>
 </model>

@@ -34,6 +34,7 @@
 		F4973E1C1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */; };
 		F4CC13621FC3210700DF989F /* StateMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CC13611FC3210700DF989F /* StateMainView.swift */; };
 		F4CC13641FC3221D00DF989F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CC13631FC3221D00DF989F /* MainViewController.swift */; };
+		F4CC13661FC3355000DF989F /* PhysicianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CC13651FC3355000DF989F /* PhysicianModel.swift */; };
 		F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */; };
 		F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */; };
 		F4E77CD81FAC8123007FCAA4 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */; };
@@ -95,6 +96,7 @@
 		F4B78A6E1FBB321800490C1D /* Alamofire-alamofire5 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Alamofire-alamofire5"; path = "../../../../Downloads/Alamofire-alamofire5"; sourceTree = "<group>"; };
 		F4CC13611FC3210700DF989F /* StateMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMainView.swift; sourceTree = "<group>"; };
 		F4CC13631FC3221D00DF989F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F4CC13651FC3355000DF989F /* PhysicianModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicianModel.swift; sourceTree = "<group>"; };
 		F4E77CD01FAC8123007FCAA4 /* PeleMedicalCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeleMedicalCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		F45AFF721FBD243F007D1E57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4CC13651FC3355000DF989F /* PhysicianModel.swift */,
 				F45AFF731FBD24A0007D1E57 /* PatientModel.swift */,
 				F4CC13611FC3210700DF989F /* StateMainView.swift */,
 			);
@@ -575,6 +578,7 @@
 				F45AFF741FBD24A0007D1E57 /* PatientModel.swift in Sources */,
 				F45AFF4C1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld in Sources */,
 				F465C8011FBDE3CE00321A99 /* PaymentTableViewCell.swift in Sources */,
+				F4CC13661FC3355000DF989F /* PhysicianModel.swift in Sources */,
 				F4973E1C1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift in Sources */,
 				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
 				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MedicDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
@@ -18,7 +19,7 @@ class MedicDetailViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet var labelSelectTime: UILabel!
     @IBOutlet var medicName: UILabel!
     
-    var medic = ""
+    var physician : PhysicianModel?
     var fruits:[String] = []
     
     let cellIdentifier = "cellTime"
@@ -32,8 +33,7 @@ class MedicDetailViewController: UIViewController, UICollectionViewDelegate, UIC
         showAnim(view: noTimeImage)
         showAnim(view: noTimeLabel)
         
-        
-        medicName.text = medic
+        medicName.text = physician?.name
 
         collectionView.delegate = self
         collectionView.dataSource = self

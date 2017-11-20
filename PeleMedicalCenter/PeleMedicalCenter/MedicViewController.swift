@@ -12,8 +12,8 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet var tableView: UITableView!
     
-    var fruits:[String] = []
-    var selectedMedic = ""
+    var physicians:[PhysicianModel] = []
+    var selectedPhysician : PhysicianModel?
     
     let cellIdentifier = "cellMedic"
     let xibIdentifier = "MedicTableViewCell"
@@ -22,7 +22,29 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        fruits = ["Apple", "Pineapple", "Orange", "Blackberry", "Banana", "Pear", "Kiwi", "Strawberry", "Mango", "Walnut"]
+        
+        
+        //MOCK
+        let p1 = PhysicianModel()
+        p1.name = "Dr. Arthur Cordova Stapassoli"
+        p1.gender = "Male"
+        p1.specialty = "Cardiologista"
+        p1.crm = "736254/SC"
+        physicians.append(p1)
+        
+        let p2 = PhysicianModel()
+        p2.name = "Dr. Francisco Nonaka"
+        p2.gender = "Male"
+        p2.specialty = "Clinico Geral"
+        p2.crm = "897678/SP"
+        physicians.append(p2)
+        
+        let p3 = PhysicianModel()
+        p3.name = "Dr. Matheus Nonaka"
+        p3.gender = "Male"
+        p3.specialty = "Pediatra"
+        p3.crm = "987544/SC"
+        physicians.append(p3)
         
     }
     
@@ -43,15 +65,17 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fruits.count
+        return physicians.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MedicTableViewCell
         
-        let fruit = fruits[indexPath.row]
+        let physician = physicians[indexPath.row]
 
-        cell.name?.text = fruit
+        cell.name?.text = physician.name
+        cell.specialty?.text = physician.specialty
+        cell.crmID?.text = physician.crm
         
         let imageHeight = cell.avatar?.frame.height;
         cell.avatar?.layer.borderWidth = 0.5
@@ -64,7 +88,7 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedMedic = fruits[indexPath.row]
+        selectedPhysician = physicians[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: false)
         self.performSegue(withIdentifier: segueDetail, sender: nil)
     }
@@ -73,7 +97,7 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if (segue.identifier == segueDetail) {
             let nav = segue.destination as! UINavigationController
             let controller = nav.topViewController as! MedicDetailViewController
-            controller.medic = selectedMedic
+            controller.physician = selectedPhysician
         }
     }
     
