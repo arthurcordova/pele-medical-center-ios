@@ -6,8 +6,7 @@ use_frameworks!
 target 'PeleMedicalCenter' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   pod 'Firebase/Core'
-#  pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'alamofire5'
-
+  pod 'Alamofire', '~> 4.5'
  
   # Pods for PeleMedicalCenter
  target 'PeleMedicalCenterTests' do

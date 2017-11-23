@@ -13,12 +13,12 @@
     </entity>
     <entity name="Schedule" representedClassName="Schedule" syncable="YES" codeGenerationType="class">
         <attribute name="patient_name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phycisian_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="physician_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="physician_specialty" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="register_status" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="schedule_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="schedule_date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="schedule_payment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="schedule_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schedule_time" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Insurance" positionX="-110" positionY="92" width="128" height="88"/>

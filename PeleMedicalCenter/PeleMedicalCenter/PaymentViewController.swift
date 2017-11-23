@@ -13,10 +13,10 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var tableView: UITableView!
     @IBOutlet var buttonSave: UIBarButtonItem!
     
+    var schedule: ScheduleModel?
     var payments:[String] = []
     var selectedPayment = ""
     
-
     let cellIdentifier = "cellPayment"
     let xibIdentifier = "PaymentTableViewCell"
     
@@ -62,7 +62,14 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         buttonSave.isEnabled = true
+        schedule?.payment = payments[indexPath.item]
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segue_final_step") {
+            let controller = segue.destination as! ScheduleFinalDetailsViewController
+            controller.schedule = schedule
+        }
+    }
     
 }

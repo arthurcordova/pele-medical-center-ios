@@ -13,6 +13,9 @@ class ScheduleTableViewCell: UITableViewCell {
     @IBOutlet var dayNumber: UILabel!
     @IBOutlet var dayName: UILabel!
     @IBOutlet var cardContent: UIView!
+    @IBOutlet var labelPhysicianName: UILabel!
+    @IBOutlet var labelPatientName: UILabel!
+    @IBOutlet var labelTime: UILabel!
     
     @IBOutlet var title: UILabel!
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -14,8 +15,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet var topHeader: NSLayoutConstraint!
     
-    
-    var fruits:[String] = []
+    var schedules:[ScheduleModel] = []
+    var selectedSchedule: ScheduleModel?
     
     let cellIdentifier = "cellSchedule"
     let xibIdentifier = "ScheduleTableViewCell"
@@ -25,7 +26,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         configureTableView()
         
-        fruits = ["Apple", "Pineapple", "Orange", "Blackberry", "Banana", "Pear", "Kiwi", "Strawberry", "Mango", "Walnut", "Apricot", "Tomato", "Almond", "Date", "Melon", "Water Melon", "Lemon", "Coconut", "Fig", "Passionfruit", "Star Fruit", "Clementin", "Citron", "Cherry", "Cranberry"]
+        
+        
         
 //        Alamofire.request(.GET, "https://us-central1-scheduling-tracker.cloudfunctions.net/getPhysicians")
 //            .response { request, response, data, error in
@@ -33,6 +35,43 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
 //                print(response)
 //                print(error)
 //        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        schedules.removeAll()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Schedule")
+        //request.predicate = NSPredicate(format: "age = %@", "12")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                let schedule = ScheduleModel()
+                let patient = PatientModel()
+                let physician = PhysicianModel()
+                
+                schedule.date = data.value(forKey: "schedule_date") as! String
+                schedule.time = data.value(forKey: "schedule_time") as! String
+                schedule.payment = data.value(forKey: "schedule_payment") as! String
+                
+                patient.name = data.value(forKey: "patient_name") as! String
+                
+                physician.name = data.value(forKey: "physician_name") as! String
+                physician.specialty = data.value(forKey: "physician_specialty") as! String
+                
+                schedule.patient = patient
+                schedule.physician = physician
+                
+                schedules.append(schedule)
+                
+                self.tableView.reloadData()
+            }
+            
+        } catch {
+            print("Failed")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,41 +91,32 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fruits.count
+        return schedules.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ScheduleTableViewCell
         
-//        // Fetch Fruit
-//        let fruit = fruits[indexPath.row]
-//
-//        cell.name?.text = fruit
-//
-//        let imageHeight = cell.avatar?.frame.height;
-//        cell.avatar?.layer.borderWidth = 0.5
-//        cell.avatar?.layer.masksToBounds = false
-//        cell.avatar?.layer.borderColor = UIColor.lightGray.cgColor
-//        cell.avatar?.layer.cornerRadius = (imageHeight!)/2
-//        cell.avatar?.clipsToBounds = true
-//
-//
-//        // Configure Cell
-//        //        cell.textLabel?.text = fruit
+
+        let schedule = schedules[indexPath.row]
+        
+        cell.labelPatientName.text = schedule.patient?.name
+        cell.labelTime.text = schedule.time
+        cell.labelPhysicianName.text = schedule.physician?.name
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        selectedSchedule = schedules[indexPath.item]
         self.performSegue(withIdentifier: segueDetail, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == segueDetail) {
-//            let nav = segue.destination as! UINavigationController
-//            let controller = nav.topViewController as! MedicDetailViewController
-//            controller.medic = selectedMedic
+            let controller = segue.destination as! ScheduleFinalDetailsViewController
+            controller.schedule = selectedSchedule
         }
     }
     

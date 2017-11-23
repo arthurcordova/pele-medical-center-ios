@@ -15,6 +15,8 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var buttonNext: UIBarButtonItem!
     
     var patients:[PatientModel] = []
+    var selectedPatient: PatientModel?
+    var schedule: ScheduleModel?
     let cellIdentifier = "cellPatient"
     let xibIdentifier = "PatientTableViewCell"
     
@@ -81,12 +83,20 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
         if (patient.birth != nil){
             cell.labelBirth?.text = dateFormatter.string(from: (patient.birth)!)
         }
-   
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         buttonNext.isEnabled = true
+        selectedPatient = patients[indexPath.item]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segue_next_payment") {
+            let controller = segue.destination as! PaymentViewController
+            schedule?.patient = selectedPatient
+            controller.schedule = schedule
+        }
     }
    
 }

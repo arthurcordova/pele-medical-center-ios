@@ -11,6 +11,7 @@ import CoreData
 
 class MedicDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var buttonSchedule: UIBarButtonItem!
     @IBOutlet var noTimeImage: UIImageView!
     @IBOutlet var noTimeLabel: UILabel!
@@ -21,13 +22,15 @@ class MedicDetailViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var physician : PhysicianModel?
     var fruits:[String] = []
+    var schedule: ScheduleModel?
     
     let cellIdentifier = "cellTime"
     let xibIdentifier = "TimeCollectionViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        collectionView.layer.isHidden = true
+        schedule = ScheduleModel()
+        schedule?.physician = physician
         
         hideAnim(view: timeIndicator)
         showAnim(view: noTimeImage)
@@ -65,6 +68,8 @@ class MedicDetailViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         buttonSchedule.isEnabled = true
+        
+        schedule?.time = fruits[indexPath.item]
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -97,6 +102,18 @@ class MedicDetailViewController: UIViewController, UICollectionViewDelegate, UIC
         UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
             view.alpha = 1.0
         }, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segue_next_patient") {
+            let controller = segue.destination as! PatientListViewController
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            schedule?.date = dateFormatter.string(from: datePicker.date)
+            
+            controller.schedule = schedule
+        }
     }
     
 }
