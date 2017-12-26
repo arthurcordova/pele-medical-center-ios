@@ -8,12 +8,14 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
     
-    var physicians:[PhysicianModel] = []
+//    var physicians:[PhysicianModel] = []
+    var physicians : Array<PhysicianModel> = []
     var selectedPhysician : PhysicianModel?
     
     let cellIdentifier = "cellMedic"
@@ -24,44 +26,7 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         configureTableView()
        
-        Alamofire.request("http://www2.beautyclinic.com.br/clinwebservice/servidor/pelews/medicos/getmedicos/3").responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
-        }
-        
-        
-        
-        //MOCK
-        let p1 = PhysicianModel()
-        p1.name = "Dr. Arthur Cordova Stapassoli"
-        p1.gender = "Male"
-        p1.specialty = "Cardiologista"
-        p1.crm = "736254/SC"
-        physicians.append(p1)
-        
-        let p2 = PhysicianModel()
-        p2.name = "Dr. Francisco Nonaka"
-        p2.gender = "Male"
-        p2.specialty = "Clinico Geral"
-        p2.crm = "897678/SP"
-        physicians.append(p2)
-        
-        let p3 = PhysicianModel()
-        p3.name = "Dr. Matheus Nonaka"
-        p3.gender = "Male"
-        p3.specialty = "Pediatra"
-        p3.crm = "987544/SC"
-        physicians.append(p3)
-        
+        loadData()
     }
     
     private func configureTableView() {
@@ -114,6 +79,35 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let nav = segue.destination as! UINavigationController
             let controller = nav.topViewController as! MedicDetailViewController
             controller.physician = selectedPhysician
+        }
+    }
+    
+    func loadData() {
+        self.physicians.removeAll()
+        Alamofire.request("http://www2.beautyclinic.com.br/clinwebservice/servidor/pelews/medicos/getmedicos/3").responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            print("JSON: \(String(describing: response.result.value))") // response serialization result
+            
+            if let data = response.result.value{
+                
+                if  (data as? [[String : AnyObject]]) != nil{
+                    
+                    if let dictionaryArray = data as? Array<Dictionary<String, AnyObject?>> {
+                        if dictionaryArray.count > 0 {
+                            
+                            for i in 0..<dictionaryArray.count{
+                                let json = dictionaryArray[i]
+                                let physician = PhysicianModel(json: json)
+                                self.physicians.append(physician!)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            self.tableView.reloadData()
         }
     }
     

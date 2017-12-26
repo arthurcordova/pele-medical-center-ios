@@ -32,6 +32,8 @@
 		F47F54141FADFBD800D1A336 /* MedicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */; };
 		F4973E1A1FBE3CBE00B2655F /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4973E191FBE3CBE00B2655F /* DesignableView.swift */; };
 		F4973E1C1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */; };
+		F4ADB3301FD80CB400FCD111 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADB32F1FD80CB400FCD111 /* DesignableTextField.swift */; };
+		F4ADB3321FD80F6D00FCD111 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADB3311FD80F6D00FCD111 /* LoginViewController.swift */; };
 		F4CC13621FC3210700DF989F /* StateMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CC13611FC3210700DF989F /* StateMainView.swift */; };
 		F4CC13641FC3221D00DF989F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CC13631FC3221D00DF989F /* MainViewController.swift */; };
 		F4CC13661FC3355000DF989F /* PhysicianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CC13651FC3355000DF989F /* PhysicianModel.swift */; };
@@ -44,6 +46,7 @@
 		F4E77CE01FAC8123007FCAA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E77CDE1FAC8123007FCAA4 /* LaunchScreen.storyboard */; };
 		F4E77CEB1FAC8123007FCAA4 /* PeleMedicalCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CEA1FAC8123007FCAA4 /* PeleMedicalCenterTests.swift */; };
 		F4E77CF61FAC8123007FCAA4 /* PeleMedicalCenterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E77CF51FAC8123007FCAA4 /* PeleMedicalCenterUITests.swift */; };
+		F4F796841FC87B14006E929F /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F796831FC87B14006E929F /* PlaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +97,8 @@
 		F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicTableViewCell.xib; sourceTree = "<group>"; };
 		F4973E191FBE3CBE00B2655F /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleFinalDetailsViewController.swift; sourceTree = "<group>"; };
+		F4ADB32F1FD80CB400FCD111 /* DesignableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		F4ADB3311FD80F6D00FCD111 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F4B78A6E1FBB321800490C1D /* Alamofire-alamofire5 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Alamofire-alamofire5"; path = "../../../../Downloads/Alamofire-alamofire5"; sourceTree = "<group>"; };
 		F4CC13611FC3210700DF989F /* StateMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMainView.swift; sourceTree = "<group>"; };
 		F4CC13631FC3221D00DF989F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 		F4E77CF11FAC8123007FCAA4 /* PeleMedicalCenterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeleMedicalCenterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E77CF51FAC8123007FCAA4 /* PeleMedicalCenterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeleMedicalCenterUITests.swift; sourceTree = "<group>"; };
 		F4E77CF71FAC8123007FCAA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4F796831FC87B14006E929F /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		FE5D79047CB7A63D2CE9E5D0 /* Pods-PeleMedicalCenter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenter/Pods-PeleMedicalCenter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +209,7 @@
 			children = (
 				F4973E191FBE3CBE00B2655F /* DesignableView.swift */,
 				F418ACD01FBE65160048DA9C /* DesignableButton.swift */,
+				F4ADB32F1FD80CB400FCD111 /* DesignableTextField.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -236,8 +243,10 @@
 				F45AFF721FBD243F007D1E57 /* Model */,
 				F47F54101FADFBB500D1A336 /* Cells */,
 				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
+				F4ADB3311FD80F6D00FCD111 /* LoginViewController.swift */,
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
 				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
+				F4F796831FC87B14006E929F /* PlaceViewController.swift */,
 				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
 				F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */,
 				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
@@ -540,12 +549,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PeleMedicalCenter/Pods-PeleMedicalCenter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,7 +586,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4F796841FC87B14006E929F /* PlaceViewController.swift in Sources */,
 				F4CC13641FC3221D00DF989F /* MainViewController.swift in Sources */,
+				F4ADB3301FD80CB400FCD111 /* DesignableTextField.swift in Sources */,
 				F45AFF431FBCDCB4007D1E57 /* MedicDetailViewController.swift in Sources */,
 				F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */,
 				F45AFF711FBD1F61007D1E57 /* PatientListViewController.swift in Sources */,
@@ -597,6 +610,7 @@
 				F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */,
 				F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */,
 				F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */,
+				F4ADB3321FD80F6D00FCD111 /* LoginViewController.swift in Sources */,
 				F4973E1A1FBE3CBE00B2655F /* DesignableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

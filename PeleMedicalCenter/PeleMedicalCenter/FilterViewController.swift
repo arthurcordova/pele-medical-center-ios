@@ -11,9 +11,11 @@ import UIKit
 class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var buttonPlace: UIButton!
     
     let cellIdentifier = "cellSpecialty"
     let xibIdentifier = "SpecialtyCollectionViewCell"
+    let seguePlace = "segue_place"
     
     var fruits:[String] = []
     
@@ -61,6 +63,13 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         let cellWidth = widthRemainingForCellContent / cellsAcross
         return CGSize(width: cellWidth, height: cellWidth)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == seguePlace) {
+            let controller = segue.destination as! PlaceViewController
+            controller.buttonFromView = buttonPlace
+        }
     }
     
 //    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
