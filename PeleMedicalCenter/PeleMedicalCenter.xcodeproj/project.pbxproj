@@ -10,6 +10,7 @@
 		6C9B93EBA7CA40EB4839EE9B /* Pods_PeleMedicalCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADAECA25CB8DD834CC940B3A /* Pods_PeleMedicalCenter.framework */; };
 		8269B67A296AEEC135B73CDC /* Pods_PeleMedicalCenterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB50B138F7A67E5884FB0C2 /* Pods_PeleMedicalCenterTests.framework */; };
 		CD079EE7806374518FB4264F /* Pods_PeleMedicalCenterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497EEEC640CEFA0EA6253883 /* Pods_PeleMedicalCenterUITests.framework */; };
+		F40025C21FF3024A0099F926 /* DialogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40025C11FF3024A0099F926 /* DialogUtils.swift */; };
 		F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418ACD01FBE65160048DA9C /* DesignableButton.swift */; };
 		F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */; };
 		F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */; };
@@ -75,6 +76,7 @@
 		ADAECA25CB8DD834CC940B3A /* Pods_PeleMedicalCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeleMedicalCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E060FFB3490A726638BB1E9B /* Pods-PeleMedicalCenterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA1977D91BE07882626474EB /* Pods-PeleMedicalCenterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F40025C11FF3024A0099F926 /* DialogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogUtils.swift; sourceTree = "<group>"; };
 		F418ACD01FBE65160048DA9C /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -174,6 +176,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F40025C01FF2FFE40099F926 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F40025C11FF3024A0099F926 /* DialogUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		F45AFF721FBD243F007D1E57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +249,7 @@
 		F4E77CD21FAC8123007FCAA4 /* PeleMedicalCenter */ = {
 			isa = PBXGroup;
 			children = (
+				F40025C01FF2FFE40099F926 /* Utils */,
 				F4973E181FBE3C9F00B2655F /* Component */,
 				F45AFF721FBD243F007D1E57 /* Model */,
 				F47F54101FADFBB500D1A336 /* Cells */,
@@ -609,6 +620,7 @@
 				F4E77CD81FAC8123007FCAA4 /* ScheduleViewController.swift in Sources */,
 				F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */,
 				F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */,
+				F40025C21FF3024A0099F926 /* DialogUtils.swift in Sources */,
 				F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */,
 				F4ADB3321FD80F6D00FCD111 /* LoginViewController.swift in Sources */,
 				F4973E1A1FBE3CBE00B2655F /* DesignableView.swift in Sources */,

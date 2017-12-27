@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         inputLoginEmail.delegate = self
         inputLoginPwd.delegate = self
-       
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,28 +32,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
             inputLoginPwd.becomeFirstResponder()
         } else if (textField == inputLoginPwd) {
-            let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.actionSheet)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+
+            doLogin(email: inputLoginEmail.text!, pwd: inputLoginPwd.text!)
+            
         }
         return true;
     }
-
+    @IBAction func actionLogin(_ sender: Any) {
+        doLogin(email: inputLoginEmail.text!, pwd: inputLoginPwd.text!)
+    }
+    
     func doLogin(email:String, pwd: String) {
         
-        let parameters: [String: AnyObject] = [
-            "email" : email as AnyObject,
-            "senha" : pwd as AnyObject,
+        let parameters: [String: String] = [
+            "email" : email as String,
+            "senha" : pwd as String,
         ]
         
-        Alamofire.request("http://www2.beautyclinic.com.br/clinwebservice/servidor/pelews/paciente/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request("http://www2.beautyclinic.com.br/clickwebservice/servidor/pelews/paciente/login", method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
             print("JSON: \(String(describing: response.result.value))") // response serialization result
             
-            if let data = response.result.value{
-                print(data)
+            if((response.result.value) != nil) {
+                let swiftyJsonVar = JSON(response.result.value!)
+                let patient = PatientModel(json: swiftyJsonVar)
+                let dialog = DialogUtils.init(controller: self)
+                
+                dialog.showAlert(title: "Cliente \(patient.id)", message: patient.name, buttonTitle: "Fechar", isAlert:true)
+                
+              
             }
         }
     }

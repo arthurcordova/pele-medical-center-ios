@@ -1628,7 +1628,7 @@
                                                     <constraint firstAttribute="height" constant="41" id="5Lp-Co-0yR"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="VsN-2o-Y9g">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VsN-2o-Y9g">
                                                 <rect key="frame" x="14" y="18" width="236" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="vwC-VU-Xyr"/>
@@ -1687,6 +1687,9 @@
                                                         <real key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="actionLogin:" destination="kYB-ZA-c9O" eventType="touchUpInside" id="brf-7u-urr"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.32000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQc-yX-Put">
                                                 <rect key="frame" x="112" y="198" width="40" height="21"/>

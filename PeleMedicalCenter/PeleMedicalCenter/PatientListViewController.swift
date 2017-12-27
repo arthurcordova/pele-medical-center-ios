@@ -43,9 +43,9 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
             for data in result as! [NSManagedObject] {
                 let patient = PatientModel()
                 patient.name = data.value(forKey: "name") as! String
-                patient.gender = data.value(forKey: "gender") as! String
-                patient.birth = data.value(forKey: "birth") as? Date
-                
+//                patient.gender = data.value(forKey: "gender") as! String
+//                patient.birth = data.value(forKey: "birth") as? Date
+//
                 patients.append(patient)
                 self.tableView.reloadData()
             }
@@ -74,15 +74,15 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
         let patient = self.patients[indexPath.row]
         
         cell.labelName?.text = patient.name
-        cell.labelGender?.text = patient.gender
+//        cell.labelGender?.text = patient.gender
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/mm/yyyy"
         dateFormatter.locale = Locale.init(identifier: "pt_BR")
         
-        if (patient.birth != nil){
-            cell.labelBirth?.text = dateFormatter.string(from: (patient.birth)!)
-        }
+//        if (patient.birth != nil){
+//            cell.labelBirth?.text = dateFormatter.string(from: (patient.birth)!)
+//        }
         return cell
     }
     

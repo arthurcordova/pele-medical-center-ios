@@ -7,11 +7,24 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class PatientModel {
     
+    var id : Int?
     var name : String = ""
-    var gender : String = ""
-    var birth : Date?
+    
+    init() {
+        
+    }
+    
+    init(json: JSON) {
+        if let name = json["nome"].string {
+            self.name = name
+        }
+        if let id = json["codcliente"].int {
+            self.id = id
+        }
+    }
     
 }
