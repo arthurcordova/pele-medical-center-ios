@@ -15,6 +15,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var inputLoginEmail: UITextField!
     @IBOutlet var inputLoginPwd: UITextField!
     
+    let segueLoginOK = "segue_login_ok"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         inputLoginEmail.delegate = self
@@ -38,9 +40,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         return true;
     }
+    
     @IBAction func actionLogin(_ sender: Any) {
         doLogin(email: inputLoginEmail.text!, pwd: inputLoginPwd.text!)
     }
+    
+    
     
     func doLogin(email:String, pwd: String) {
         
@@ -57,10 +62,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             if((response.result.value) != nil) {
                 let swiftyJsonVar = JSON(response.result.value!)
+                print(swiftyJsonVar)
                 let patient = PatientModel(json: swiftyJsonVar)
                 let dialog = DialogUtils.init(controller: self)
                 
-                dialog.showAlert(title: "Cliente \(patient.id)", message: patient.name, buttonTitle: "Fechar", isAlert:true)
+                self.performSegue(withIdentifier: self.segueLoginOK, sender: nil)
+                
+//                dialog.showAlert(title: "Cliente \(patient.id)", message: patient.name, buttonTitle: "Fechar", isAlert:true)
                 
               
             }
