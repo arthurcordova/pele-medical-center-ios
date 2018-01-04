@@ -979,7 +979,7 @@
         <!--Meus dados-->
         <scene sceneID="LUH-CB-DMa">
             <objects>
-                <viewController id="zG2-Cc-Mye" sceneMemberID="viewController">
+                <viewController id="zG2-Cc-Mye" customClass="ProfileViewController" customModule="PeleMedicalCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="79X-yk-a0J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1010,7 +1010,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="Arthur" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-ES-I8b">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-ES-I8b">
                                                 <rect key="frame" x="67" y="11" width="293" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
@@ -1032,7 +1032,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="arthur.stapassoli@gmail.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmM-iU-hQR">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmM-iU-hQR">
                                                 <rect key="frame" x="121" y="11" width="238" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="q7u-zB-mXA"/>
@@ -1061,6 +1061,9 @@
                                                 <state key="normal" title="Sair">
                                                     <color key="titleColor" red="1" green="0.35686274509803922" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="actionLogout:" destination="zG2-Cc-Mye" eventType="touchUpInside" id="GsR-2q-JuM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1104,6 +1107,11 @@
                         <viewLayoutGuide key="safeArea" id="pm8-ts-Eq9"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Meus dados" image="ic_user_data" id="CtN-lR-VSF"/>
+                    <connections>
+                        <outlet property="labelEmail" destination="RmM-iU-hQR" id="Sfg-Fh-f0f"/>
+                        <outlet property="labelName" destination="D0b-ES-I8b" id="pXN-bD-h1u"/>
+                        <segue destination="kYB-ZA-c9O" kind="show" identifier="segue_logout" id="P3i-0v-uKE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzU-JY-edv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2347,7 +2355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOV-52-YPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2828" y="480.80959520239884"/>
+            <point key="canvasLocation" x="-2730" y="481"/>
         </scene>
     </scenes>
     <resources>

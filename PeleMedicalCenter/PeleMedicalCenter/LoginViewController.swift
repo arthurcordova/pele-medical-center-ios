@@ -16,12 +16,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var inputLoginPwd: UITextField!
     
     let segueLoginOK = "segue_login_ok"
+    let defaultsUser = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         inputLoginEmail.delegate = self
         inputLoginPwd.delegate = self
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let patientID = defaultsUser.integer(forKey: "patient_id")
+        if (patientID > 0) {
+            self.performSegue(withIdentifier: self.segueLoginOK, sender: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +73,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print(swiftyJsonVar)
                 let patient = PatientModel(json: swiftyJsonVar)
                 let dialog = DialogUtils.init(controller: self)
+                
+                self.defaultsUser.set(patient.id, forKey: "patient_id")
+                self.defaultsUser.set(email, forKey: "patient_email")
+                self.defaultsUser.set(patient.name, forKey: "patient_name")
+                self.defaultsUser.synchronize()
                 
                 self.performSegue(withIdentifier: self.segueLoginOK, sender: nil)
                 
