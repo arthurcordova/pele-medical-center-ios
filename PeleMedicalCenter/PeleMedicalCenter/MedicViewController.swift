@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
 class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
@@ -84,7 +85,8 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func loadData() {
         self.physicians.removeAll()
-        Alamofire.request("http://www2.beautyclinic.com.br/clinwebservice/servidor/pelews/medicos/getmedicos/3").responseJSON { response in
+        
+        Alamofire.request("http://www2.beautyclinic.com.br/clickwebservice/servidor/pelews/medicos/getmedicos/0").responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result

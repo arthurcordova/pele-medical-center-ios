@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -15,37 +16,42 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     let cellIdentifier = "cellSpecialty"
     let xibIdentifier = "SpecialtyCollectionViewCell"
-    let seguePlace = "segue_place"
+    let segueDropDown = "segue_drop_down"
+    let url_specialties = "\(HTTPUtils.URL_MAIN)/especialidade/getespecialidades"
     
-    var fruits:[String] = []
+    var specialties:[SpecialtyModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.allowsMultipleSelection = true
+        collectionView.allowsMultipleSelection = false
         collectionView.register(UINib(nibName: xibIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         
-        fruits = ["Cardiologista", "Oftalmologista", "Dermatologista", "Pediatra", "Clinico Geral"]
     }
-
+    
+    public func loadSpecialties(cityID: Int) {
+        if (cityID > 0){
+            loadSpecialtiesFromServer(url: url_specialties, uuid: cityID)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fruits.count;
+        return specialties.count;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
                                                       for: indexPath) as! SpecialtyCollectionViewCell
         
-        cell.name?.text = fruits[indexPath.row]
-        
+        let model = specialties[indexPath.row]
+        cell.name?.text = model.name
         cell.contentView.layoutMargins.left = 20
-      
     
         return cell
     }
@@ -66,25 +72,48 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == seguePlace) {
+        if (segue.identifier == segueDropDown) {
             let controller = segue.destination as! PlaceViewController
             controller.buttonFromView = buttonPlace
+            controller.parentVC = self
         }
     }
-    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        return CGSize(width: 100.0, height: 100.0)
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        var str = fruits[indexPath.item] as! String
-//        var lenght = str.count
-//        var width = lenght + 80
-//
-//        return CGSize(width: width, height: 30)
-//    }
-    
+   
     @IBAction func closeView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    private func loadSpecialtiesFromServer(url : String, uuid: Int) {
+        let urlWithParameter = "\(url)/\(uuid)"
+        Alamofire.request(urlWithParameter).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            print("JSON: \(String(describing: response.result.value))") // response serialization result
+            
+            if let data = response.result.value{
+                if  (data as? [[String : AnyObject]]) != nil{
+                    
+                    if let dictionaryArray = data as? Array<Dictionary<String, AnyObject?>> {
+                        if dictionaryArray.count > 0 {
+                            
+                            for i in 0..<dictionaryArray.count{
+                                let json = dictionaryArray[i]
+                                    let specialty = SpecialtyModel(json: json)
+                                    self.specialties.append(specialty!)
+                                }
+                        } else {
+                            self.specialties.removeAll()
+                        }
+                    }
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+//        DispatchQueue.main.async {
+//            self.collectionView.reloadData()
+//        }
+    }
+    
 }
+

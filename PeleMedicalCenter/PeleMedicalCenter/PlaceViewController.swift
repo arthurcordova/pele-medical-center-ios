@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PlaceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -14,16 +15,21 @@ class PlaceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var buttonFromView : UIButton?
     var places : Array<String> = []
-    var selected : String?
+    var selected : Any?
+    var list : Array<Any> = []
+    var whatIs : String?
+    var parentVC : FilterViewController?
+    
+    let url_cities = "\(HTTPUtils.URL_MAIN)/general/getcities"
+    let url_clinic = "\(HTTPUtils.URL_MAIN)/general/getcities"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         
-        places.append("Fortaleza")
-        places.append("Maceió")
-        
+        loadFromServer(url: url_cities)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -31,15 +37,22 @@ class PlaceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 2
+        return list.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return places[row]
+        var str : String!
+        if (whatIs == "city") {
+            str = (list[row] as! CityModel).name
+        }
+        
+        return str
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selected = places[row]
+        if (list.count > 0){
+            selected = list[row]
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,9 +68,45 @@ class PlaceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func selectedPlace(_ sender: Any) {
-        if (selected != nil){
-            buttonFromView?.setTitle(selected, for: .normal)
+        if (whatIs == "city") {
+            if (selected == nil){
+                selected = list[0]
+            }
+            let city = selected as! CityModel
+            self.buttonFromView?.setTitle(city.name, for: .normal)
+            self.parentVC?.loadSpecialties(cityID: city.uuid)
         }
         dismiss(animated: true, completion: nil)
     }
+    
+    func loadFromServer(url : String) {
+        Alamofire.request(url).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            print("JSON: \(String(describing: response.result.value))") // response serialization result
+            
+            if let data = response.result.value{
+                if  (data as? [[String : AnyObject]]) != nil{
+                    
+                    if let dictionaryArray = data as? Array<Dictionary<String, AnyObject?>> {
+                        if dictionaryArray.count > 0 {
+                            
+                            for i in 0..<dictionaryArray.count{
+                                let json = dictionaryArray[i]
+                                
+                                if (url == self.self.url_cities) {
+                                    self.whatIs = "city"
+                                    let city = CityModel(json: json)
+                                    self.list.append(city)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            self.pickerView.reloadAllComponents();
+        }
+    }
+    
 }
