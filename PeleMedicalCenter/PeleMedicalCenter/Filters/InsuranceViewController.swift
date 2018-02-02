@@ -9,27 +9,31 @@
 import UIKit
 import Alamofire
 
-class PlaceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+class InsuranceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
     @IBOutlet var pickerView: UIPickerView!
     
     var buttonFromView : UIButton?
+    var buttonFromViewInsurance : UIButton?
     var places : Array<String> = []
     var selected : Any?
     var list : Array<Any> = []
     var whatIs : String?
     var parentVC : FilterViewController?
+    var filters : FilterModel!
     
-    let url_cities = "\(HTTPUtils.URL_MAIN)/general/getcities"
-    let url_clinic = "\(HTTPUtils.URL_MAIN)/general/getcities"
+    let url_insurance = "\(HTTPUtils.URL_MAIN)/insurance/getinsurance/"
     
+    let defaultsFilter = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         
-        loadFromServer(url: url_cities)
+        filters = FilterModel(data: defaultsFilter)
+        
+        loadFromServer(url: url_insurance)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -42,9 +46,7 @@ class PlaceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         var str : String!
-        if (whatIs == "city") {
-            str = (list[row] as! CityModel).name
-        }
+        str = (list[row] as! InsuranceModel).name
         
         return str
     }
@@ -68,19 +70,25 @@ class PlaceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func selectedPlace(_ sender: Any) {
-        if (whatIs == "city") {
-            if (selected == nil){
+        
+        if (selected == nil){
+            if (list.count > 0){
                 selected = list[0]
             }
-            let city = selected as! CityModel
-            self.buttonFromView?.setTitle(city.name, for: .normal)
-            self.parentVC?.loadSpecialties(cityID: city.uuid)
         }
-        dismiss(animated: true, completion: nil)
+        let consult = selected as? InsuranceModel
+        if (consult != nil){
+            self.defaultsFilter.setValue(consult?.uuid, forKey: "insurance_id")
+            self.defaultsFilter.setValue(consult?.name, forKey: "insurance_name")
+            self.defaultsFilter.synchronize()
+            self.buttonFromView?.setTitle(consult?.name, for: .normal)
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     func loadFromServer(url : String) {
-        Alamofire.request(url).responseJSON { response in
+        
+        Alamofire.request("\(url)\(filters.cityID ?? 0)").responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
@@ -93,13 +101,10 @@ class PlaceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                         if dictionaryArray.count > 0 {
                             
                             for i in 0..<dictionaryArray.count{
-                                let json = dictionaryArray[i]
                                 
-                                if (url == self.self.url_cities) {
-                                    self.whatIs = "city"
-                                    let city = CityModel(json: json)
-                                    self.list.append(city)
-                                }
+                                let json = dictionaryArray[i]
+                                self.list.append(InsuranceModel(json: json))
+                                
                             }
                         }
                     }
@@ -110,3 +115,6 @@ class PlaceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
 }
+
+
+

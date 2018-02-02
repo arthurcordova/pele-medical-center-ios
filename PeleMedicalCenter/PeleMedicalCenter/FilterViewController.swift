@@ -13,13 +13,21 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var buttonPlace: UIButton!
+    @IBOutlet var buttonClinic: UIButton!
+    @IBOutlet var buttonConsultType: UIButton!
+    @IBOutlet var buttonInsurance: UIButton!
     
     let cellIdentifier = "cellSpecialty"
     let xibIdentifier = "SpecialtyCollectionViewCell"
-    let segueDropDown = "segue_drop_down"
+    let segueDropDownCity = "segue_drop_down_city"
+    let segueDropDownClinic = "segue_drop_down_clinic"
+    let segueDropDownConsultType = "segue_drop_down_consult_type"
+    let segueDropDownInsurance = "segue_drop_down_insurance"
     let url_specialties = "\(HTTPUtils.URL_MAIN)/especialidade/getespecialidades"
+    let savedFilter = UserDefaults.standard
     
     var specialties:[SpecialtyModel] = []
+    var filters : FilterModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +36,40 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         collectionView.allowsMultipleSelection = false
         collectionView.register(UINib(nibName: xibIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        
+        buttonInsurance.isEnabled = false;
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        filters = FilterModel(data: savedFilter);
+        
+        if filters.cityID != nil {
+            buttonPlace.setTitle(filters.cityName, for: .normal)
+            loadSpecialtiesFromServer(url: url_specialties, uuid: filters.cityID)
+        }
+        
+        if filters.clinicalID != nil  {
+            buttonClinic.setTitle(filters.clinicalName, for: .normal)
+        }
+        if filters.insuranceID != nil  {
+            buttonInsurance.setTitle(filters.insuranceName, for: .normal)
+        }
+        
+        if filters.consultTypeID != nil  {
+            buttonConsultType.setTitle(filters.consultTypeName, for: .normal)
+            if (filters.consultTypeName.contains("PARTICULAR")) {
+                savedFilter.set(nil, forKey: "insurance_id")
+                savedFilter.set(nil, forKey: "insurance_name")
+                savedFilter.synchronize()
+                buttonInsurance.setTitle("", for: .normal)
+                
+                buttonInsurance.isEnabled = false;
+                
+            } else {
+                buttonInsurance.isEnabled = true;
+            }
+        }
+        
         
     }
     
@@ -71,10 +113,27 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         return CGSize(width: cellWidth, height: cellWidth)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        savedFilter.set(specialties[indexPath.row].uuid, forKey: "specialty_id")
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == segueDropDown) {
+        if (segue.identifier == segueDropDownCity) {
             let controller = segue.destination as! PlaceViewController
             controller.buttonFromView = buttonPlace
+            controller.parentVC = self
+        } else if (segue.identifier == segueDropDownClinic) {
+            let controller = segue.destination as! ClinicViewController
+            controller.buttonFromView = buttonClinic
+            controller.parentVC = self
+        } else if (segue.identifier == segueDropDownConsultType) {
+            let controller = segue.destination as! ConsultTypedViewController
+            controller.buttonFromView = buttonConsultType
+            controller.buttonFromViewInsurance = buttonInsurance
+            controller.parentVC = self
+        } else if (segue.identifier == segueDropDownInsurance) {
+            let controller = segue.destination as! InsuranceViewController
+            controller.buttonFromView = buttonInsurance
             controller.parentVC = self
         }
     }
@@ -107,13 +166,21 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
                         }
                     }
                     self.collectionView.reloadData()
+                    self.validateSavedSpecialty()
                 }
             }
         }
-//        DispatchQueue.main.async {
-//            self.collectionView.reloadData()
-//        }
+    }
+    
+    func validateSavedSpecialty(){
+        if ((self.filters.specialtyID) != nil) {
+            for index in 0 ..< self.specialties.count {
+                if (self.specialties[index].uuid == self.filters.specialtyID){
+                    let indexPath = self.collectionView.indexPathsForSelectedItems?.last ?? IndexPath(item: index, section: 0)
+                    self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
+                }
+            }
+        }
     }
     
 }
-

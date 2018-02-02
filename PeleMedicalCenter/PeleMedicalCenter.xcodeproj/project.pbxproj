@@ -12,9 +12,14 @@
 		CD079EE7806374518FB4264F /* Pods_PeleMedicalCenterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497EEEC640CEFA0EA6253883 /* Pods_PeleMedicalCenterUITests.framework */; };
 		F40025C21FF3024A0099F926 /* DialogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40025C11FF3024A0099F926 /* DialogUtils.swift */; };
 		F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418ACD01FBE65160048DA9C /* DesignableButton.swift */; };
+		F4191E20202494C300ACA35C /* ClinicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E1F202494C300ACA35C /* ClinicViewController.swift */; };
+		F4191E22202499B000ACA35C /* ClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E21202499B000ACA35C /* ClinicModel.swift */; };
+		F4191E242024CF9000ACA35C /* ConsultTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E232024CF9000ACA35C /* ConsultTypeViewController.swift */; };
+		F4191E262024D0A200ACA35C /* ConsultTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E252024D0A200ACA35C /* ConsultTypeModel.swift */; };
 		F43C69321FFC7404006C7FFE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C69311FFC7404006C7FFE /* SignupViewController.swift */; };
 		F43C69341FFC75BB006C7FFE /* RecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C69331FFC75BB006C7FFE /* RecoveryViewController.swift */; };
 		F43C69361FFDA372006C7FFE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C69351FFDA372006C7FFE /* ProfileViewController.swift */; };
+		F451C90920240090008762D8 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451C90820240090008762D8 /* FilterModel.swift */; };
 		F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */; };
 		F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */; };
 		F45AFF411FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */; };
@@ -30,6 +35,8 @@
 		F465C8011FBDE3CE00321A99 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465C7FF1FBDE3CE00321A99 /* PaymentTableViewCell.swift */; };
 		F465C8021FBDE3CE00321A99 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F465C8001FBDE3CE00321A99 /* PaymentTableViewCell.xib */; };
 		F465C8041FBDE50400321A99 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465C8031FBDE50400321A99 /* PaymentViewController.swift */; };
+		F4698B662024F3AA00BBCB49 /* InsuranceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4698B652024F3AA00BBCB49 /* InsuranceModel.swift */; };
+		F4698B682024F47000BBCB49 /* InsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4698B672024F47000BBCB49 /* InsuranceViewController.swift */; };
 		F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */; };
 		F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */; };
 		F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */; };
@@ -84,9 +91,14 @@
 		EA1977D91BE07882626474EB /* Pods-PeleMedicalCenterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F40025C11FF3024A0099F926 /* DialogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogUtils.swift; sourceTree = "<group>"; };
 		F418ACD01FBE65160048DA9C /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		F4191E1F202494C300ACA35C /* ClinicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicViewController.swift; sourceTree = "<group>"; };
+		F4191E21202499B000ACA35C /* ClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicModel.swift; sourceTree = "<group>"; };
+		F4191E232024CF9000ACA35C /* ConsultTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultTypeViewController.swift; sourceTree = "<group>"; };
+		F4191E252024D0A200ACA35C /* ConsultTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultTypeModel.swift; sourceTree = "<group>"; };
 		F43C69311FFC7404006C7FFE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F43C69331FFC75BB006C7FFE /* RecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryViewController.swift; sourceTree = "<group>"; };
 		F43C69351FFDA372006C7FFE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F451C90820240090008762D8 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F45AFF3E1FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialtyCollectionViewCell.swift; sourceTree = "<group>"; };
 		F45AFF3F1FBB7437007D1E57 /* SpecialtyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialtyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -102,6 +114,8 @@
 		F465C7FF1FBDE3CE00321A99 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		F465C8001FBDE3CE00321A99 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
 		F465C8031FBDE50400321A99 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		F4698B652024F3AA00BBCB49 /* InsuranceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceModel.swift; sourceTree = "<group>"; };
+		F4698B672024F47000BBCB49 /* InsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceViewController.swift; sourceTree = "<group>"; };
 		F46C87AB1FAF402F00596DE5 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicTableViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +211,17 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		F4191E1E2024948000ACA35C /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				F4F796831FC87B14006E929F /* PlaceViewController.swift */,
+				F4191E1F202494C300ACA35C /* ClinicViewController.swift */,
+				F4191E232024CF9000ACA35C /* ConsultTypeViewController.swift */,
+				F4698B672024F47000BBCB49 /* InsuranceViewController.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
 		F45AFF721FBD243F007D1E57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +231,10 @@
 				F4CC13671FC3B16A00DF989F /* ScheduleModel.swift */,
 				F4D3890C2018ADF30010202B /* CityModel.swift */,
 				F4D3890E2018BE9A0010202B /* SpecialtyModel.swift */,
+				F451C90820240090008762D8 /* FilterModel.swift */,
+				F4191E21202499B000ACA35C /* ClinicModel.swift */,
+				F4191E252024D0A200ACA35C /* ConsultTypeModel.swift */,
+				F4698B652024F3AA00BBCB49 /* InsuranceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,6 +293,7 @@
 		F4E77CD21FAC8123007FCAA4 /* PeleMedicalCenter */ = {
 			isa = PBXGroup;
 			children = (
+				F4191E1E2024948000ACA35C /* Filters */,
 				F40025C01FF2FFE40099F926 /* Utils */,
 				F4973E181FBE3C9F00B2655F /* Component */,
 				F45AFF721FBD243F007D1E57 /* Model */,
@@ -275,7 +305,6 @@
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
 				F43C69351FFDA372006C7FFE /* ProfileViewController.swift */,
 				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
-				F4F796831FC87B14006E929F /* PlaceViewController.swift */,
 				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
 				F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */,
 				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
@@ -622,6 +651,8 @@
 				F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */,
 				F45AFF711FBD1F61007D1E57 /* PatientListViewController.swift in Sources */,
 				F4D3890B2018AB5A0010202B /* HTTPUtils.swift in Sources */,
+				F4698B682024F47000BBCB49 /* InsuranceViewController.swift in Sources */,
+				F451C90920240090008762D8 /* FilterModel.swift in Sources */,
 				F465C8041FBDE50400321A99 /* PaymentViewController.swift in Sources */,
 				F45AFF741FBD24A0007D1E57 /* PatientModel.swift in Sources */,
 				F45AFF4C1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld in Sources */,
@@ -631,11 +662,14 @@
 				F43C69361FFDA372006C7FFE /* ProfileViewController.swift in Sources */,
 				F4973E1C1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift in Sources */,
 				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
+				F4698B662024F3AA00BBCB49 /* InsuranceModel.swift in Sources */,
 				F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */,
+				F4191E262024D0A200ACA35C /* ConsultTypeModel.swift in Sources */,
 				F45AFF481FBCFAAF007D1E57 /* TimeCollectionViewCell.swift in Sources */,
 				F4CC13621FC3210700DF989F /* StateMainView.swift in Sources */,
 				F45AFF4E1FBD1B86007D1E57 /* PatientRecordViewController.swift in Sources */,
 				F4D3890D2018ADF30010202B /* CityModel.swift in Sources */,
+				F4191E242024CF9000ACA35C /* ConsultTypeViewController.swift in Sources */,
 				F45AFF771FBD2882007D1E57 /* PatientTableViewCell.swift in Sources */,
 				F46C87AD1FAF402F00596DE5 /* ScheduleTableViewCell.swift in Sources */,
 				F4E77CD81FAC8123007FCAA4 /* ScheduleViewController.swift in Sources */,
@@ -645,7 +679,9 @@
 				F43C69341FFC75BB006C7FFE /* RecoveryViewController.swift in Sources */,
 				F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */,
 				F40025C21FF3024A0099F926 /* DialogUtils.swift in Sources */,
+				F4191E22202499B000ACA35C /* ClinicModel.swift in Sources */,
 				F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */,
+				F4191E20202494C300ACA35C /* ClinicViewController.swift in Sources */,
 				F4ADB3321FD80F6D00FCD111 /* LoginViewController.swift in Sources */,
 				F4973E1A1FBE3CBE00B2655F /* DesignableView.swift in Sources */,
 			);
