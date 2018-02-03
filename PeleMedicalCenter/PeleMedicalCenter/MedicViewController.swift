@@ -15,18 +15,22 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet var tableView: UITableView!
     
-//    var physicians:[PhysicianModel] = []
     var physicians : Array<PhysicianModel> = []
     var selectedPhysician : PhysicianModel?
+    var filter : FilterModel!
     
     let cellIdentifier = "cellMedic"
     let xibIdentifier = "MedicTableViewCell"
     let segueDetail = "segue_medic_detail"
+    let defaults = UserDefaults.standard
+    let url_physicians = "\(HTTPUtils.URL_MAIN)/medicos/getdoctors"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
        
+        filter = FilterModel(data: defaults)
+        
         loadData()
     }
     
@@ -86,7 +90,16 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func loadData() {
         self.physicians.removeAll()
         
-        Alamofire.request("http://www2.beautyclinic.com.br/clickwebservice/servidor/pelews/medicos/getmedicos/0").responseJSON { response in
+       
+        let parameters: [String: Int] = [
+            "codCidade" : filter.cityID == nil ? 0 : filter.cityID,
+            "codClinica": filter.clinicalID == nil ? 0 : filter.clinicalID,
+            "codEspecialidade": filter.specialtyID == nil ? 0 : filter.specialtyID,
+            "tipoConsulta": filter.consultTypeID == nil ? 0 : filter.consultTypeID,
+            "codConvenio": filter.insuranceID == nil ? 0 : filter.insuranceID
+        ]
+        
+        Alamofire.request(url_physicians, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result

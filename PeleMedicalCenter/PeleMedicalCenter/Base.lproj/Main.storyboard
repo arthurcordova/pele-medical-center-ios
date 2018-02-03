@@ -2662,7 +2662,6 @@
         <image name="ic_user_data" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pmp-sw-rLs"/>
         <segue reference="Kpd-LM-Jzs"/>
         <segue reference="1Hu-k7-Y6L"/>
         <segue reference="Cqg-0m-KNQ"/>
