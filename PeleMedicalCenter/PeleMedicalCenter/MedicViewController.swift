@@ -31,7 +31,7 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
        
         filter = FilterModel(data: defaults)
         
-        loadData()
+        loadData(url: url_physicians)
     }
     
     private func configureTableView() {
@@ -87,10 +87,9 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func loadData() {
+    func loadData(url : String) {
         self.physicians.removeAll()
         
-       
         let parameters: [String: Int] = [
             "codCidade" : filter.cityID == nil ? 0 : filter.cityID,
             "codClinica": filter.clinicalID == nil ? 0 : filter.clinicalID,
@@ -99,7 +98,7 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
             "codConvenio": filter.insuranceID == nil ? 0 : filter.insuranceID
         ]
         
-        Alamofire.request(url_physicians, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request(url, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result

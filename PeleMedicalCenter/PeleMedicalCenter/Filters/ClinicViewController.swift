@@ -108,7 +108,6 @@ class ClinicViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                                 let json = dictionaryArray[i]
                                    let clinic = ClinicModel(json: json)
                                     self.list.append(clinic)
-                                
                             }
                         }
                     }
