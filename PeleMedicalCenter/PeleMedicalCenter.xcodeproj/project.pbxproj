@@ -16,6 +16,10 @@
 		F4191E22202499B000ACA35C /* ClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E21202499B000ACA35C /* ClinicModel.swift */; };
 		F4191E242024CF9000ACA35C /* ConsultTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E232024CF9000ACA35C /* ConsultTypeViewController.swift */; };
 		F4191E262024D0A200ACA35C /* ConsultTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E252024D0A200ACA35C /* ConsultTypeModel.swift */; };
+		F433D67E2027ECA800EAED06 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433D67D2027ECA800EAED06 /* NotificationViewController.swift */; };
+		F433D6802027EE3F00EAED06 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433D67F2027EE3F00EAED06 /* NotificationModel.swift */; };
+		F433D6852027EF7F00EAED06 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433D6832027EF7F00EAED06 /* NotificationTableViewCell.swift */; };
+		F433D6862027EF7F00EAED06 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F433D6842027EF7F00EAED06 /* NotificationTableViewCell.xib */; };
 		F43C69321FFC7404006C7FFE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C69311FFC7404006C7FFE /* SignupViewController.swift */; };
 		F43C69341FFC75BB006C7FFE /* RecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C69331FFC75BB006C7FFE /* RecoveryViewController.swift */; };
 		F43C69361FFDA372006C7FFE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C69351FFDA372006C7FFE /* ProfileViewController.swift */; };
@@ -95,6 +99,10 @@
 		F4191E21202499B000ACA35C /* ClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicModel.swift; sourceTree = "<group>"; };
 		F4191E232024CF9000ACA35C /* ConsultTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultTypeViewController.swift; sourceTree = "<group>"; };
 		F4191E252024D0A200ACA35C /* ConsultTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultTypeModel.swift; sourceTree = "<group>"; };
+		F433D67D2027ECA800EAED06 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		F433D67F2027EE3F00EAED06 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		F433D6832027EF7F00EAED06 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		F433D6842027EF7F00EAED06 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		F43C69311FFC7404006C7FFE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F43C69331FFC75BB006C7FFE /* RecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryViewController.swift; sourceTree = "<group>"; };
 		F43C69351FFDA372006C7FFE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +243,7 @@
 				F4191E21202499B000ACA35C /* ClinicModel.swift */,
 				F4191E252024D0A200ACA35C /* ConsultTypeModel.swift */,
 				F4698B652024F3AA00BBCB49 /* InsuranceModel.swift */,
+				F433D67F2027EE3F00EAED06 /* NotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,6 +263,8 @@
 				F45AFF761FBD2882007D1E57 /* PatientTableViewCell.xib */,
 				F465C7FF1FBDE3CE00321A99 /* PaymentTableViewCell.swift */,
 				F465C8001FBDE3CE00321A99 /* PaymentTableViewCell.xib */,
+				F433D6832027EF7F00EAED06 /* NotificationTableViewCell.swift */,
+				F433D6842027EF7F00EAED06 /* NotificationTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -309,6 +320,7 @@
 				F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */,
 				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
 				F465C8031FBDE50400321A99 /* PaymentViewController.swift */,
+				F433D67D2027ECA800EAED06 /* NotificationViewController.swift */,
 				F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */,
 				F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */,
 				F4E77CD91FAC8123007FCAA4 /* Main.storyboard */,
@@ -455,6 +467,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F433D6862027EF7F00EAED06 /* NotificationTableViewCell.xib in Resources */,
 				F465C8021FBDE3CE00321A99 /* PaymentTableViewCell.xib in Resources */,
 				F47F54141FADFBD800D1A336 /* MedicTableViewCell.xib in Resources */,
 				F45AFF781FBD2882007D1E57 /* PatientTableViewCell.xib in Resources */,
@@ -644,6 +657,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F433D6802027EE3F00EAED06 /* NotificationModel.swift in Sources */,
 				F4F796841FC87B14006E929F /* PlaceViewController.swift in Sources */,
 				F4CC13641FC3221D00DF989F /* MainViewController.swift in Sources */,
 				F4ADB3301FD80CB400FCD111 /* DesignableTextField.swift in Sources */,
@@ -676,9 +690,11 @@
 				F4E77CD41FAC8123007FCAA4 /* AppDelegate.swift in Sources */,
 				F43C69321FFC7404006C7FFE /* SignupViewController.swift in Sources */,
 				F4D3890F2018BE9A0010202B /* SpecialtyModel.swift in Sources */,
+				F433D6852027EF7F00EAED06 /* NotificationTableViewCell.swift in Sources */,
 				F43C69341FFC75BB006C7FFE /* RecoveryViewController.swift in Sources */,
 				F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */,
 				F40025C21FF3024A0099F926 /* DialogUtils.swift in Sources */,
+				F433D67E2027ECA800EAED06 /* NotificationViewController.swift in Sources */,
 				F4191E22202499B000ACA35C /* ClinicModel.swift in Sources */,
 				F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */,
 				F4191E20202494C300ACA35C /* ClinicViewController.swift in Sources */,

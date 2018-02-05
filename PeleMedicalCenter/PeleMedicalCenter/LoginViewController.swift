@@ -50,7 +50,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func actionLogin(_ sender: Any) {
-        doLogin(email: inputLoginEmail.text!, pwd: inputLoginPwd.text!)
+        if (inputLoginEmail.text != "" && inputLoginPwd.text != "") {
+            doLogin(email: inputLoginEmail.text!, pwd: inputLoginPwd.text!)
+        } else {
+            let dialog = DialogUtils.init(controller: self)
+            dialog.showAlert(title: "Erro", message: "Por favor, informe todos os campos para continuar.", buttonTitle: "Fechar", isAlert: true)
+        }
     }
     
     
@@ -72,18 +77,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let swiftyJsonVar = JSON(response.result.value!)
                 print(swiftyJsonVar)
                 let patient = PatientModel(json: swiftyJsonVar)
-                let dialog = DialogUtils.init(controller: self)
-                
-                self.defaultsUser.set(patient.id, forKey: "patient_id")
-                self.defaultsUser.set(email, forKey: "patient_email")
-                self.defaultsUser.set(patient.name, forKey: "patient_name")
-                self.defaultsUser.synchronize()
-                
-                self.performSegue(withIdentifier: self.segueLoginOK, sender: nil)
-                
-//                dialog.showAlert(title: "Cliente \(patient.id)", message: patient.name, buttonTitle: "Fechar", isAlert:true)
-                
-              
+               
+                if (patient.id != nil) {
+                    self.defaultsUser.set(patient.id, forKey: "patient_id")
+                    self.defaultsUser.set(email, forKey: "patient_email")
+                    self.defaultsUser.set(patient.name, forKey: "patient_name")
+                    self.defaultsUser.synchronize()
+                    
+                    self.performSegue(withIdentifier: self.segueLoginOK, sender: nil)
+                } else {
+                    let dialog = DialogUtils.init(controller: self)
+                    dialog.showAlert(title: "Erro", message: "Usuário ou senha inválido.", buttonTitle: "Fechar", isAlert: true)
+                    
+                }
             }
         }
     }

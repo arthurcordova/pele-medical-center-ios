@@ -13,6 +13,7 @@ class PatientModel {
     
     var id : Int?
     var name : String = ""
+    var email : String?
     
     init() {
         
@@ -24,6 +25,9 @@ class PatientModel {
         }
         if let id = json["codcliente"].int {
             self.id = id
+        }
+        if let email = json["email"].string {
+            self.email = email
         }
     }
     
