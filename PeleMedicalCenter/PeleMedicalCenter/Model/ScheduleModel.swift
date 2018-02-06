@@ -11,7 +11,7 @@ import Foundation
 class ScheduleModel {
     
     var date : String = ""
-    var time : String = ""
+    var time : TimeModel?
     var payment : String = ""
     var physician: PhysicianModel?
     var patient: PatientModel?

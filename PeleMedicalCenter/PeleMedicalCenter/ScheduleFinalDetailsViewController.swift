@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
 class ScheduleFinalDetailsViewController: UIViewController {
 
@@ -19,14 +20,20 @@ class ScheduleFinalDetailsViewController: UIViewController {
     @IBOutlet var labelPayment: UILabel!
     
     var schedule: ScheduleModel?
+    var filters: FilterModel?
+    
+    let userDefaults = UserDefaults.standard
+    let url_schedule = "\(HTTPUtils.URL_MAIN)/agenda/doagendamento"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        filters = FilterModel(data: userDefaults)
 
         labelPhysicianName.text = schedule?.physician?.name
         labelPhysicianSpecialty.text = schedule?.physician?.specialty
         labelDate.text = schedule?.date
-        labelTime.text = schedule?.time
+        labelTime.text = schedule?.time?.time
         labelPatientName.text = schedule?.patient?.name
         labelPayment.text = schedule?.payment
         
@@ -42,30 +49,47 @@ class ScheduleFinalDetailsViewController: UIViewController {
     }
     
     @IBAction func confirmSchedule(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Schedule", in: context)
-        let newSchedule = NSManagedObject(entity: entity!, insertInto: context)
         
-        newSchedule.setValue(schedule?.date, forKey: "schedule_date")
-        newSchedule.setValue(schedule?.time, forKey: "schedule_time")
-        newSchedule.setValue(schedule?.payment, forKey: "schedule_payment")
-        newSchedule.setValue("A", forKey: "schedule_status")
-        newSchedule.setValue(schedule?.physician?.name, forKey: "physician_name")
-        newSchedule.setValue(schedule?.physician?.specialty, forKey: "physician_specialty")
-        newSchedule.setValue(schedule?.patient?.name, forKey: "patient_name")
+        saveSchedule(url: url_schedule)
         
-        do {
-            try context.save()
-        } catch {
-            print("Failed saving")
-        }
-        
-        
-        StateMainView.setViewIndex(index: 1)
-        
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+//        StateMainView.setViewIndex(index: 1)
+//
+//        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
 
+    }
+    
+    func saveSchedule(url: String) {
+        let parameters: [String: Int] = [
+            "codAgenda" : filters.cityID,
+            "codProcedimento": filters?.consultTypeID,
+            "codCliente": filters.specialtyID,
+            "turno": filters.specialtyID,
+            "data": filters.specialtyID
+            ]
+      
+        Alamofire.request(url, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            print("JSON: \(String(describing: response.result.value))") // response serialization result
+            
+            if let data = response.result.value{
+                if  (data as? [[String : AnyObject]]) != nil{
+                    
+                    if let dictionaryArray = data as? Array<Dictionary<String, AnyObject?>> {
+                        if dictionaryArray.count > 0 {
+                            
+                            for i in 0..<dictionaryArray.count{
+                                let json = dictionaryArray[i]
+                                let clinic = ClinicModel(json: json)
+                                self.list.append(clinic)
+                            }
+                        }
+                    }
+                }
+            }
+            self.pickerView.reloadAllComponents();
+        }
     }
  
 }

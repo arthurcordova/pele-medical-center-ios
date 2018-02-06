@@ -11,6 +11,7 @@
 		8269B67A296AEEC135B73CDC /* Pods_PeleMedicalCenterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB50B138F7A67E5884FB0C2 /* Pods_PeleMedicalCenterTests.framework */; };
 		CD079EE7806374518FB4264F /* Pods_PeleMedicalCenterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497EEEC640CEFA0EA6253883 /* Pods_PeleMedicalCenterUITests.framework */; };
 		F40025C21FF3024A0099F926 /* DialogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40025C11FF3024A0099F926 /* DialogUtils.swift */; };
+		F4185AE3202A156300A2FF10 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4185AE2202A156300A2FF10 /* TimeModel.swift */; };
 		F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418ACD01FBE65160048DA9C /* DesignableButton.swift */; };
 		F4191E20202494C300ACA35C /* ClinicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E1F202494C300ACA35C /* ClinicViewController.swift */; };
 		F4191E22202499B000ACA35C /* ClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E21202499B000ACA35C /* ClinicModel.swift */; };
@@ -45,8 +46,12 @@
 		F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */; };
 		F47F54131FADFBD800D1A336 /* MedicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */; };
 		F47F54141FADFBD800D1A336 /* MedicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */; };
+		F48FCD622028E04300D4EFE6 /* ArriveOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48FCD612028E04300D4EFE6 /* ArriveOrderModel.swift */; };
 		F4973E1A1FBE3CBE00B2655F /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4973E191FBE3CBE00B2655F /* DesignableView.swift */; };
 		F4973E1C1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */; };
+		F4A836BA2028977700EF70F7 /* SelectDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A836B92028977600EF70F7 /* SelectDayViewController.swift */; };
+		F4A836BC2028D30700EF70F7 /* SelectTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A836BB2028D30700EF70F7 /* SelectTimeViewController.swift */; };
+		F4A836C02028DE3300EF70F7 /* SelectArriveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A836BF2028DE3300EF70F7 /* SelectArriveViewController.swift */; };
 		F4ADB3301FD80CB400FCD111 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADB32F1FD80CB400FCD111 /* DesignableTextField.swift */; };
 		F4ADB3321FD80F6D00FCD111 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ADB3311FD80F6D00FCD111 /* LoginViewController.swift */; };
 		F4CC13621FC3210700DF989F /* StateMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CC13611FC3210700DF989F /* StateMainView.swift */; };
@@ -94,6 +99,7 @@
 		E060FFB3490A726638BB1E9B /* Pods-PeleMedicalCenterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA1977D91BE07882626474EB /* Pods-PeleMedicalCenterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F40025C11FF3024A0099F926 /* DialogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogUtils.swift; sourceTree = "<group>"; };
+		F4185AE2202A156300A2FF10 /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
 		F418ACD01FBE65160048DA9C /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		F4191E1F202494C300ACA35C /* ClinicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicViewController.swift; sourceTree = "<group>"; };
 		F4191E21202499B000ACA35C /* ClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicModel.swift; sourceTree = "<group>"; };
@@ -128,8 +134,12 @@
 		F46C87AC1FAF402F00596DE5 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		F47F54111FADFBD800D1A336 /* MedicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicTableViewCell.swift; sourceTree = "<group>"; };
 		F47F54121FADFBD800D1A336 /* MedicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicTableViewCell.xib; sourceTree = "<group>"; };
+		F48FCD612028E04300D4EFE6 /* ArriveOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArriveOrderModel.swift; sourceTree = "<group>"; };
 		F4973E191FBE3CBE00B2655F /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleFinalDetailsViewController.swift; sourceTree = "<group>"; };
+		F4A836B92028977600EF70F7 /* SelectDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDayViewController.swift; sourceTree = "<group>"; };
+		F4A836BB2028D30700EF70F7 /* SelectTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeViewController.swift; sourceTree = "<group>"; };
+		F4A836BF2028DE3300EF70F7 /* SelectArriveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectArriveViewController.swift; sourceTree = "<group>"; };
 		F4ADB32F1FD80CB400FCD111 /* DesignableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		F4ADB3311FD80F6D00FCD111 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F4B78A6E1FBB321800490C1D /* Alamofire-alamofire5 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Alamofire-alamofire5"; path = "../../../../Downloads/Alamofire-alamofire5"; sourceTree = "<group>"; };
@@ -226,6 +236,9 @@
 				F4191E1F202494C300ACA35C /* ClinicViewController.swift */,
 				F4191E232024CF9000ACA35C /* ConsultTypeViewController.swift */,
 				F4698B672024F47000BBCB49 /* InsuranceViewController.swift */,
+				F4A836B92028977600EF70F7 /* SelectDayViewController.swift */,
+				F4A836BF2028DE3300EF70F7 /* SelectArriveViewController.swift */,
+				F4A836BB2028D30700EF70F7 /* SelectTimeViewController.swift */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -244,6 +257,8 @@
 				F4191E252024D0A200ACA35C /* ConsultTypeModel.swift */,
 				F4698B652024F3AA00BBCB49 /* InsuranceModel.swift */,
 				F433D67F2027EE3F00EAED06 /* NotificationModel.swift */,
+				F48FCD612028E04300D4EFE6 /* ArriveOrderModel.swift */,
+				F4185AE2202A156300A2FF10 /* TimeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -658,6 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F433D6802027EE3F00EAED06 /* NotificationModel.swift in Sources */,
+				F4A836BC2028D30700EF70F7 /* SelectTimeViewController.swift in Sources */,
 				F4F796841FC87B14006E929F /* PlaceViewController.swift in Sources */,
 				F4CC13641FC3221D00DF989F /* MainViewController.swift in Sources */,
 				F4ADB3301FD80CB400FCD111 /* DesignableTextField.swift in Sources */,
@@ -666,6 +682,7 @@
 				F45AFF711FBD1F61007D1E57 /* PatientListViewController.swift in Sources */,
 				F4D3890B2018AB5A0010202B /* HTTPUtils.swift in Sources */,
 				F4698B682024F47000BBCB49 /* InsuranceViewController.swift in Sources */,
+				F4185AE3202A156300A2FF10 /* TimeModel.swift in Sources */,
 				F451C90920240090008762D8 /* FilterModel.swift in Sources */,
 				F465C8041FBDE50400321A99 /* PaymentViewController.swift in Sources */,
 				F45AFF741FBD24A0007D1E57 /* PatientModel.swift in Sources */,
@@ -674,6 +691,7 @@
 				F4CC13661FC3355000DF989F /* PhysicianModel.swift in Sources */,
 				F4CC13681FC3B16A00DF989F /* ScheduleModel.swift in Sources */,
 				F43C69361FFDA372006C7FFE /* ProfileViewController.swift in Sources */,
+				F4A836C02028DE3300EF70F7 /* SelectArriveViewController.swift in Sources */,
 				F4973E1C1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift in Sources */,
 				F45AFF3D1FBB5FD9007D1E57 /* FilterViewController.swift in Sources */,
 				F4698B662024F3AA00BBCB49 /* InsuranceModel.swift in Sources */,
@@ -681,6 +699,7 @@
 				F4191E262024D0A200ACA35C /* ConsultTypeModel.swift in Sources */,
 				F45AFF481FBCFAAF007D1E57 /* TimeCollectionViewCell.swift in Sources */,
 				F4CC13621FC3210700DF989F /* StateMainView.swift in Sources */,
+				F48FCD622028E04300D4EFE6 /* ArriveOrderModel.swift in Sources */,
 				F45AFF4E1FBD1B86007D1E57 /* PatientRecordViewController.swift in Sources */,
 				F4D3890D2018ADF30010202B /* CityModel.swift in Sources */,
 				F4191E242024CF9000ACA35C /* ConsultTypeViewController.swift in Sources */,
@@ -694,6 +713,7 @@
 				F43C69341FFC75BB006C7FFE /* RecoveryViewController.swift in Sources */,
 				F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */,
 				F40025C21FF3024A0099F926 /* DialogUtils.swift in Sources */,
+				F4A836BA2028977700EF70F7 /* SelectDayViewController.swift in Sources */,
 				F433D67E2027ECA800EAED06 /* NotificationViewController.swift in Sources */,
 				F4191E22202499B000ACA35C /* ClinicModel.swift in Sources */,
 				F4E77CD61FAC8123007FCAA4 /* MedicViewController.swift in Sources */,

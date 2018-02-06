@@ -11,29 +11,29 @@ import CoreData
 
 class MedicDetailViewController: UIViewController {
 
-//    UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
-    
-//    @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var buttonSchedule: UIBarButtonItem!
     @IBOutlet var buttonTimeRound: UIButton!
     @IBOutlet var buttonDate: UIButton!
     @IBOutlet var labelTimeRound: UILabel!
     @IBOutlet var viewWarningRound: UIView!
-    //    @IBOutlet var noTimeImage: UIImageView!
-//    @IBOutlet var noTimeLabel: UILabel!
-//    @IBOutlet var timeIndicator: UIActivityIndicatorView!
-//    @IBOutlet var collectionView: UICollectionView!
-//    @IBOutlet var labelSelectTime: UILabel!
+    @IBOutlet var viewTimeRound: UIView!
     @IBOutlet var medicName: UILabel!
     @IBOutlet var labelSpecialty: UILabel!
     
     var physician : PhysicianModel?
-    var fruits:[String] = []
     var schedule: ScheduleModel?
     
-    let cellIdentifier = "cellTime"
-    let xibIdentifier = "TimeCollectionViewCell"
+    var dateSelected: String?
+    var roundSelected: String?
+    var timeSelected: TimeModel?
     
+    let segueSelectDay = "segue_select_day"
+    let segueSelectTime = "segue_select_time"
+    let segueSelectRound = "segue_select_round"
+    
+    let unwindSegueSelectDay = "unwindSegueToMedicDetail"
+    let unwindSegueSelectRound = "unwindSegueRound"
+    let unwindSegueSelectTime = "unwindSegueTime"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,50 +42,7 @@ class MedicDetailViewController: UIViewController {
         
         medicName.text = physician?.name
         labelSpecialty.text = physician?.specialty
-        
-        if (physician?.arriveOrder)! {
-            showAnim(view: viewWarningRound)
-        }
-        
-        
-        
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-//
-//        collectionView.allowsMultipleSelection = false
-//        collectionView.register(UINib(nibName: xibIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-//
-//        fruits = ["14:00", "14:45", "16:00", "17:00", "19:15", "14:00", "14:45", "16:00", "17:00", "19:15", "14:00", "14:45", "16:00", "17:00", "19:15", "14:00", "14:45", "16:00", "17:00", "19:15"]
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return fruits.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: view.frame.width / 6, height: 45)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
-//                                                      for: indexPath) as! TimeCollectionViewCell
-//
-//        cell.labelTime?.text = fruits[indexPath.row]
-//
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        buttonSchedule.isEnabled = true
-//
-//        schedule?.time = fruits[indexPath.item]
-//    }
-    
-//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        buttonSchedule.isEnabled = false
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -95,13 +52,36 @@ class MedicDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-//    @IBAction func changeDate(_ sender: UIDatePicker) {
-//
-//        buttonSchedule.isEnabled = false
-//        hideAnim(view: collectionView)
-//        showAnim(view: timeIndicator)
-//
-//    }
+    @IBAction func unwindToMedic(unwindSegue: UIStoryboardSegue) {
+        print(unwindSegue.identifier ?? "Nenhum segue")
+        if (unwindSegue.identifier == unwindSegueSelectDay) {
+            if (dateSelected != nil) {
+                if (physician?.arriveOrder)! {
+                    labelTimeRound.text = "Selecione o turno:"
+                    showAnim(view: viewWarningRound)
+                }
+                showAnim(view: viewTimeRound)
+            }
+        }
+        if (unwindSegue.identifier == unwindSegueSelectRound) {
+            if (roundSelected != nil) {
+                buttonSchedule.isEnabled = true
+            }
+        }
+        if (unwindSegue.identifier == unwindSegueSelectTime) {
+            if (timeSelected != nil) {
+                buttonSchedule.isEnabled = true
+            }
+        }
+    }
+    
+    @IBAction func actionTimerOrRound(_ sender: Any) {
+        if (physician?.arriveOrder)! {
+            self.performSegue(withIdentifier: segueSelectRound, sender: nil)
+        } else {
+            self.performSegue(withIdentifier: segueSelectTime, sender: nil)
+        }
+    }
     
     func hideAnim(view: UIView){
         UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
@@ -116,15 +96,33 @@ class MedicDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "segue_next_patient") {
+        if (segue.identifier == "segue_next_patient") { // NEXT STEP
             let controller = segue.destination as! PatientListViewController
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd/MM/yyyy"
-//            schedule?.date = dateFormatter.string(from: datePicker.date)
-            
+            schedule?.date = (buttonDate.titleLabel?.text)!
+            schedule?.time = timeSelected
             controller.schedule = schedule
+            
+        } else if (segue.identifier == segueSelectDay) { //SELECT DAY
+            let controller = segue.destination as! SelectDayViewController
+            controller.buttonFromView = buttonDate
+            controller.parentVC = self
+            
+        } else if (segue.identifier == segueSelectTime) { //SELECT TIME
+            let controller = segue.destination as! SelectTimeViewController
+            controller.buttonFromView = buttonTimeRound
+            controller.parentVC = self
+            controller.date = buttonDate.titleLabel?.text
+            controller.room = physician?.roomID
+            
+        } else if (segue.identifier == segueSelectRound) { // SELECT ROUND
+            let controller = segue.destination as! SelectArriveViewController
+            controller.buttonFromView = buttonTimeRound
+            controller.parentVC = self
+            controller.date = buttonDate.titleLabel?.text
+            controller.room = physician?.roomID
+            
         }
+        
     }
     
 }

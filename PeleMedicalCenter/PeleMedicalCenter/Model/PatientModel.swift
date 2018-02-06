@@ -31,4 +31,16 @@ class PatientModel {
         }
     }
     
+    init(json: Dictionary<String, AnyObject?>) {
+        if let name = json["nome"] as? String {
+            self.name = name
+        }
+        if let id = json["codcliente"] as? Int {
+            self.id = id
+        }
+        if let email = json["email"] as? String {
+            self.email = email
+        }
+    }
+    
 }

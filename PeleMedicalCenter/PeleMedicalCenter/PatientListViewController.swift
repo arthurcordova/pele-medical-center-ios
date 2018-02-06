@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
 class PatientListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,6 +18,10 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
     var patients:[PatientModel] = []
     var selectedPatient: PatientModel?
     var schedule: ScheduleModel?
+    var filters : FilterModel?
+
+    let userSaved = UserDefaults.standard
+    let url_dependents = "\(HTTPUtils.URL_MAIN)/paciente/getdependents/"
     let cellIdentifier = "cellPatient"
     let xibIdentifier = "PatientTableViewCell"
     
@@ -28,33 +33,12 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.register(UINib(nibName: xibIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         tableView.rowHeight = 81
         tableView.indicatorStyle = .white
+        
+        filters = FilterModel(data: userSaved)
+        
+        loadFromServer(url: url_dependents)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        patients.removeAll()
-        buttonNext.isEnabled = false
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Patient")
-        //request.predicate = NSPredicate(format: "age = %@", "12")
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                let patient = PatientModel()
-                patient.name = data.value(forKey: "name") as! String
-//                patient.gender = data.value(forKey: "gender") as! String
-//                patient.birth = data.value(forKey: "birth") as? Date
-//
-                patients.append(patient)
-                self.tableView.reloadData()
-            }
-            
-        } catch {
-            print("Failed")
-        }
-    }
-
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,23 +56,15 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PatientTableViewCell
         
         let patient = self.patients[indexPath.row]
-        
         cell.labelName?.text = patient.name
-//        cell.labelGender?.text = patient.gender
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/mm/yyyy"
-        dateFormatter.locale = Locale.init(identifier: "pt_BR")
-        
-//        if (patient.birth != nil){
-//            cell.labelBirth?.text = dateFormatter.string(from: (patient.birth)!)
-//        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         buttonNext.isEnabled = true
         selectedPatient = patients[indexPath.item]
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,6 +72,44 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
             let controller = segue.destination as! PaymentViewController
             schedule?.patient = selectedPatient
             controller.schedule = schedule
+        }
+    }
+    @IBAction func actionNextStep(_ sender: Any) {
+        if (selectedPatient != nil){
+            if (filters?.consultTypeName == "CONSULTA PARTICULAR") {
+                performSegue(withIdentifier: "segue_next_final", sender: self)
+            } else {
+                performSegue(withIdentifier: "segue_next_payment", sender: self)
+            }
+        }
+        
+    }
+    
+    func loadFromServer(url : String) {
+        
+        Alamofire.request("\(url)\(userSaved.integer(forKey: "patient_id") )").responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            print("JSON: \(String(describing: response.result.value))") // response serialization result
+            
+            if let data = response.result.value{
+                if  (data as? [[String : AnyObject]]) != nil{
+                    
+                    if let dictionaryArray = data as? Array<Dictionary<String, AnyObject?>> {
+                        if dictionaryArray.count > 0 {
+                            
+                            for i in 0..<dictionaryArray.count{
+                                
+                                let json = dictionaryArray[i]
+                                self.patients.append(PatientModel(json: json))
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            self.tableView.reloadData()
         }
     }
    

@@ -82,7 +82,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="sDc-fN-aht"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                <state key="normal" title="data">
+                                                <state key="normal">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -100,7 +100,7 @@
                                             <constraint firstAttribute="height" constant="42" id="yB1-yf-AR4"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uim-PE-SL4">
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uim-PE-SL4">
                                         <rect key="frame" x="0.0" y="66" width="375" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione um horário:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7D-oa-RXG">
@@ -113,16 +113,19 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTn-z0-sGx">
-                                                <rect key="frame" x="199" y="6" width="160" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTn-z0-sGx">
+                                                <rect key="frame" x="207" y="6" width="160" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Htp-4c-isz"/>
                                                     <constraint firstAttribute="width" constant="160" id="ley-Bk-O0g"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                <state key="normal" title="horaturno">
+                                                <state key="normal">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="actionTimerOrRound:" destination="vIu-jt-pR4" eventType="touchUpInside" id="MZ6-eR-nFF"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -134,7 +137,7 @@
                                             <constraint firstAttribute="trailing" secondItem="vTn-z0-sGx" secondAttribute="trailing" constant="16" id="ta9-nZ-Vob"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akM-58-Bl3">
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akM-58-Bl3">
                                         <rect key="frame" x="0.0" y="116" width="375" height="42"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este médico atende por ordem de chegada." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="195-03-5XL">
@@ -203,9 +206,10 @@
                         <outlet property="labelSpecialty" destination="Baz-zQ-G0G" id="rVQ-Dg-mSv"/>
                         <outlet property="labelTimeRound" destination="s7D-oa-RXG" id="i3Y-sg-ffy"/>
                         <outlet property="medicName" destination="ooi-D4-2ny" id="50O-zX-38k"/>
+                        <outlet property="viewTimeRound" destination="uim-PE-SL4" id="cnV-UV-h8v"/>
                         <outlet property="viewWarningRound" destination="akM-58-Bl3" id="0nj-wg-P2J"/>
-                        <segue destination="R6C-ub-HEm" kind="presentation" identifier="segue_round" id="38p-vH-jKt"/>
-                        <segue destination="0Au-kA-gAs" kind="presentation" identifier="segue_time" id="lJB-yl-PdL"/>
+                        <segue destination="R6C-ub-HEm" kind="presentation" identifier="segue_select_round" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="38p-vH-jKt"/>
+                        <segue destination="0Au-kA-gAs" kind="presentation" identifier="segue_select_time" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="lJB-yl-PdL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJZ-2I-pHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -738,7 +742,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlY-1a-iSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1135" y="1871"/>
+            <point key="canvasLocation" x="1622" y="2858"/>
         </scene>
         <!--Paciente-->
         <scene sceneID="NMv-8X-Sl2">
@@ -826,18 +830,20 @@
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Avançar" style="done" id="eW5-qH-hW4">
                             <color key="tintColor" red="0.13725490200000001" green="0.84705882349999995" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="5MX-gP-cT5" kind="show" identifier="segue_next_payment" id="e6c-vz-3BH"/>
+                                <action selector="actionNextStep:" destination="E5r-Up-uPr" id="WAZ-Hi-aNw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="buttonNext" destination="eW5-qH-hW4" id="heA-Ha-Kcs"/>
                         <outlet property="tableView" destination="j0j-Xt-yjC" id="yNE-g0-3sh"/>
+                        <segue destination="5MX-gP-cT5" kind="show" identifier="segue_next_payment" id="WT5-wm-1Qa"/>
+                        <segue destination="PYD-B3-n0n" kind="presentation" identifier="segue_next_final" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="YYt-An-CNq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xvy-C2-kxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1340" y="3073.313343328336"/>
+            <point key="canvasLocation" x="-1340" y="3136"/>
         </scene>
         <!--Médicos-->
         <scene sceneID="hNz-n2-bh7">
@@ -864,30 +870,16 @@
                                             <segue destination="CPQ-3m-PDX" kind="show" id="Kpd-LM-Jzs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRu-hH-P9z">
-                                        <rect key="frame" x="16" y="86" width="343" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="cop-cv-Xid"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                        <state key="normal" title="Clinica A">
-                                            <color key="titleColor" red="0.47058823529999999" green="0.23529411759999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98431372549019602" green="0.89803921568627454" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9Me-8a-DAv" secondAttribute="trailing" id="3kT-eA-tiM"/>
-                                    <constraint firstAttribute="bottom" secondItem="DRu-hH-P9z" secondAttribute="bottom" constant="4" id="4qT-ic-azq"/>
-                                    <constraint firstItem="DRu-hH-P9z" firstAttribute="leading" secondItem="Ex0-7J-8HQ" secondAttribute="leading" constant="16" id="CVF-gK-gS0"/>
                                     <constraint firstAttribute="bottom" secondItem="Qby-mj-eGY" secondAttribute="bottom" id="FKc-Il-H7i"/>
                                     <constraint firstAttribute="height" constant="120" id="MOe-gi-Hs5"/>
                                     <constraint firstItem="Qby-mj-eGY" firstAttribute="top" secondItem="Ex0-7J-8HQ" secondAttribute="top" id="Pz0-bu-gTk"/>
-                                    <constraint firstAttribute="trailing" secondItem="DRu-hH-P9z" secondAttribute="trailing" constant="16" id="Q0G-TB-OjZ"/>
                                     <constraint firstItem="9Me-8a-DAv" firstAttribute="top" secondItem="Ex0-7J-8HQ" secondAttribute="top" constant="32" id="ZbJ-Lw-VjB"/>
                                     <constraint firstItem="Qby-mj-eGY" firstAttribute="leading" secondItem="Ex0-7J-8HQ" secondAttribute="leading" id="jgm-86-0oi"/>
                                     <constraint firstAttribute="trailing" secondItem="Qby-mj-eGY" secondAttribute="trailing" id="lic-ip-IyJ"/>
-                                    <constraint firstItem="DRu-hH-P9z" firstAttribute="centerX" secondItem="Ex0-7J-8HQ" secondAttribute="centerX" id="nga-Jc-yQX"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FrZ-iq-92V">
@@ -1160,24 +1152,10 @@
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="R6t-AF-UtQ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-d8-OEg">
-                                        <rect key="frame" x="16" y="86" width="343" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="PLE-x5-qLm"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                        <state key="normal" title="Clinica A">
-                                            <color key="titleColor" red="0.47058823529999999" green="0.23529411759999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98431372549019602" green="0.89803921568627454" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="EX2-x7-zmY"/>
-                                    <constraint firstAttribute="trailing" secondItem="QAx-d8-OEg" secondAttribute="trailing" constant="16" id="QXo-ag-o2J"/>
-                                    <constraint firstAttribute="bottom" secondItem="QAx-d8-OEg" secondAttribute="bottom" constant="4" id="SqI-Bq-hMa"/>
-                                    <constraint firstItem="QAx-d8-OEg" firstAttribute="leading" secondItem="w4w-ql-asb" secondAttribute="leading" constant="16" id="Vc3-x7-F25"/>
-                                    <constraint firstItem="QAx-d8-OEg" firstAttribute="centerX" secondItem="w4w-ql-asb" secondAttribute="centerX" id="XV8-8g-4Dj"/>
                                     <constraint firstItem="R6t-AF-UtQ" firstAttribute="top" secondItem="w4w-ql-asb" secondAttribute="top" id="fgH-Ub-Xbs"/>
                                     <constraint firstAttribute="bottom" secondItem="R6t-AF-UtQ" secondAttribute="bottom" id="iBO-lF-bOf"/>
                                     <constraint firstItem="R6t-AF-UtQ" firstAttribute="leading" secondItem="w4w-ql-asb" secondAttribute="leading" id="xxP-UJ-akI"/>
@@ -2686,10 +2664,10 @@
             </objects>
             <point key="canvasLocation" x="-2678" y="-1463"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Day View Controller-->
         <scene sceneID="TFL-dy-bWX">
             <objects>
-                <viewController id="NSm-VL-NqJ" sceneMemberID="viewController">
+                <viewController id="NSm-VL-NqJ" customClass="SelectDayViewController" customModule="PeleMedicalCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zqf-51-MHp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2722,7 +2700,7 @@
                                                     <barButtonItem key="rightBarButtonItem" title="Selecionar" style="done" id="CAA-ah-TKl">
                                                         <color key="tintColor" red="0.13725490200000001" green="0.84705882349999995" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
-                                                            <action selector="selectedPlace:" destination="NSm-VL-NqJ" id="maG-7u-YGx"/>
+                                                            <action selector="selectDay:" destination="NSm-VL-NqJ" id="ovB-nc-gFr"/>
                                                         </connections>
                                                     </barButtonItem>
                                                 </navigationItem>
@@ -2731,11 +2709,12 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZM-Bx-evL">
                                             <rect key="frame" x="0.0" y="451" width="375" height="216"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0PA-z9-0iG">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0PA-z9-0iG">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="539529264.23657501">
                                                         <!--2018-02-05 13:14:24 +0000-->
                                                     </date>
+                                                    <locale key="locale" localeIdentifier="pt_BR"/>
                                                 </datePicker>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2772,15 +2751,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8zz-Eh-2D7"/>
                     </view>
+                    <connections>
+                        <outlet property="datePIcker" destination="0PA-z9-0iG" id="ftd-km-Tfm"/>
+                        <segue destination="FTs-TP-73O" kind="unwind" identifier="unwindSegueToMedicDetail" unwindAction="unwindToMedicWithUnwindSegue:" id="vdI-WH-Z87"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17N-wF-jbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FTs-TP-73O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-2335" y="1763"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Arrive View Controller-->
         <scene sceneID="61n-Y5-AEH">
             <objects>
-                <viewController id="R6C-ub-HEm" sceneMemberID="viewController">
+                <viewController id="R6C-ub-HEm" customClass="SelectArriveViewController" customModule="PeleMedicalCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p4C-3c-SgN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2813,7 +2797,7 @@
                                                     <barButtonItem key="rightBarButtonItem" title="Selecionar" style="done" id="ejS-jX-EhL">
                                                         <color key="tintColor" red="0.13725490200000001" green="0.84705882349999995" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
-                                                            <action selector="selectedPlace:" destination="R6C-ub-HEm" id="nMw-T9-bnd"/>
+                                                            <action selector="selectDay:" destination="R6C-ub-HEm" id="ond-p0-BxJ"/>
                                                         </connections>
                                                     </barButtonItem>
                                                 </navigationItem>
@@ -2821,7 +2805,18 @@
                                         </navigationBar>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cz-lA-z2D">
                                             <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0g8-ZZ-0QX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                                </pickerView>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="0g8-ZZ-0QX" firstAttribute="leading" secondItem="3Cz-lA-z2D" secondAttribute="leading" id="JHa-h6-8QL"/>
+                                                <constraint firstAttribute="trailing" secondItem="0g8-ZZ-0QX" secondAttribute="trailing" id="R9X-bq-0ve"/>
+                                                <constraint firstAttribute="bottom" secondItem="0g8-ZZ-0QX" secondAttribute="bottom" id="VQ2-H8-7it"/>
+                                                <constraint firstItem="0g8-ZZ-0QX" firstAttribute="top" secondItem="3Cz-lA-z2D" secondAttribute="top" id="XyI-2q-CBX"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -2849,15 +2844,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RpY-rC-l07"/>
                     </view>
+                    <connections>
+                        <outlet property="pickerView" destination="0g8-ZZ-0QX" id="x86-7x-o24"/>
+                        <segue destination="lOs-kg-X9n" kind="unwind" identifier="unwindSegueRound" unwindAction="unwindToMedicWithUnwindSegue:" id="AqC-LU-HwL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nci-hq-NWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lOs-kg-X9n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3025" y="1763"/>
         </scene>
-        <!--View Controller-->
+        <!--Select Time View Controller-->
         <scene sceneID="17f-Wk-iXb">
             <objects>
-                <viewController id="0Au-kA-gAs" sceneMemberID="viewController">
+                <viewController id="0Au-kA-gAs" customClass="SelectTimeViewController" customModule="PeleMedicalCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QJY-WX-hia">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2874,31 +2874,6 @@
                                                 <action selector="closeView:" destination="0Au-kA-gAs" eventType="touchUpInside" id="PC6-Jq-K25"/>
                                             </connections>
                                         </button>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VO8-5Y-Mnd">
-                                            <rect key="frame" x="0.0" y="355" width="375" height="312"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yc9-pk-nE1">
-                                            <rect key="frame" x="0.0" y="355" width="375" height="312"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VLp-Qv-rZE">
-                                                <size key="itemSize" width="50" height="50"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
-                                            <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cellTime" id="Lvl-8K-gIw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                    </view>
-                                                    <size key="customSize" width="50" height="50"/>
-                                                </collectionViewCell>
-                                            </cells>
-                                        </collectionView>
                                         <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MJI-kh-BpI">
                                             <rect key="frame" x="0.0" y="311" width="375" height="44"/>
                                             <constraints>
@@ -2915,20 +2890,50 @@
                                                     <barButtonItem key="rightBarButtonItem" title="Selecionar" style="done" id="9I5-e2-uWg">
                                                         <color key="tintColor" red="0.13725490200000001" green="0.84705882349999995" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
-                                                            <action selector="selectedPlace:" destination="0Au-kA-gAs" id="C10-5v-KvO"/>
+                                                            <action selector="actionSelectTime:" destination="0Au-kA-gAs" id="rU9-1T-Gts"/>
                                                         </connections>
                                                     </barButtonItem>
                                                 </navigationItem>
                                             </items>
                                         </navigationBar>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VO8-5Y-Mnd">
+                                            <rect key="frame" x="0.0" y="355" width="375" height="312"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1cj-gy-0hg">
+                                                    <rect key="frame" x="8" y="16" width="359" height="296"/>
+                                                    <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ppn-BD-1PL">
+                                                        <size key="itemSize" width="50" height="50"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cellTime" id="dh2-dM-nIs">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </view>
+                                                            <size key="customSize" width="50" height="50"/>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="1cj-gy-0hg" secondAttribute="bottom" id="AnW-an-KKI"/>
+                                                <constraint firstItem="1cj-gy-0hg" firstAttribute="top" secondItem="VO8-5Y-Mnd" secondAttribute="top" constant="16" id="cFA-As-JNA"/>
+                                                <constraint firstAttribute="trailing" secondItem="1cj-gy-0hg" secondAttribute="trailing" constant="8" id="pYp-Ve-FeY"/>
+                                                <constraint firstItem="1cj-gy-0hg" firstAttribute="leading" secondItem="VO8-5Y-Mnd" secondAttribute="leading" constant="8" id="tBm-0u-Vge"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="yc9-pk-nE1" secondAttribute="bottom" id="4Fl-Nz-hDW"/>
                                         <constraint firstItem="VO8-5Y-Mnd" firstAttribute="top" secondItem="MJI-kh-BpI" secondAttribute="bottom" id="B92-FH-oT0"/>
                                         <constraint firstAttribute="bottom" secondItem="XrJ-oF-jki" secondAttribute="bottom" id="Emg-IP-a6c"/>
-                                        <constraint firstItem="yc9-pk-nE1" firstAttribute="top" secondItem="MJI-kh-BpI" secondAttribute="bottom" id="HAc-tR-Gmi"/>
                                         <constraint firstAttribute="trailing" secondItem="MJI-kh-BpI" secondAttribute="trailing" id="Rm0-F1-eD2"/>
-                                        <constraint firstItem="yc9-pk-nE1" firstAttribute="leading" secondItem="LMn-sJ-WkK" secondAttribute="leading" id="TkL-lX-vHp"/>
                                         <constraint firstAttribute="bottom" secondItem="VO8-5Y-Mnd" secondAttribute="bottom" id="UyH-jt-5eF"/>
                                         <constraint firstAttribute="trailing" secondItem="XrJ-oF-jki" secondAttribute="trailing" id="abw-VG-E1j"/>
                                         <constraint firstAttribute="trailing" secondItem="VO8-5Y-Mnd" secondAttribute="trailing" id="agX-DB-Ep4"/>
@@ -2937,7 +2942,6 @@
                                         <constraint firstItem="MJI-kh-BpI" firstAttribute="leading" secondItem="LMn-sJ-WkK" secondAttribute="leading" id="nWx-im-Xsf"/>
                                         <constraint firstItem="MJI-kh-BpI" firstAttribute="centerY" secondItem="LMn-sJ-WkK" secondAttribute="centerY" id="ptm-Sz-GqR"/>
                                         <constraint firstItem="XrJ-oF-jki" firstAttribute="leading" secondItem="LMn-sJ-WkK" secondAttribute="leading" id="pzp-DB-PfJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="yc9-pk-nE1" secondAttribute="trailing" id="soB-ME-Bt7"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="light"/>
@@ -2952,8 +2956,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mkk-Nk-eGA"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="1cj-gy-0hg" id="Uh2-cj-Yh4"/>
+                        <segue destination="NZf-rJ-6kR" kind="unwind" identifier="unwindSegueTime" unwindAction="unwindToMedicWithUnwindSegue:" id="7Wx-0C-cwF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHv-tR-x4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NZf-rJ-6kR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3714.4000000000001" y="1762.6686656671666"/>
         </scene>
@@ -2964,7 +2973,7 @@
         <image name="ic_close" width="24" height="24"/>
         <image name="ic_doctor_avatar" width="48" height="48"/>
         <image name="ic_filter" width="22" height="21"/>
-        <image name="ic_find_user" width="125" height="120"/>
+        <image name="ic_find_user" width="128" height="128"/>
         <image name="ic_logo" width="209" height="53"/>
         <image name="ic_medic" width="20" height="24"/>
         <image name="ic_notification" width="24" height="20"/>
@@ -2974,7 +2983,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="A4h-tH-FGO"/>
-        <segue reference="KyR-qE-hNH"/>
+        <segue reference="Kpd-LM-Jzs"/>
         <segue reference="1Hu-k7-Y6L"/>
         <segue reference="Cqg-0m-KNQ"/>
     </inferredMetricsTieBreakers>

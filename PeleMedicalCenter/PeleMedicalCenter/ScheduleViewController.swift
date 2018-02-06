@@ -53,7 +53,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
                 let physician = PhysicianModel()
                 
                 schedule.date = data.value(forKey: "schedule_date") as! String
-                schedule.time = data.value(forKey: "schedule_time") as! String
+                schedule.time?.time = data.value(forKey: "schedule_time") as! String
                 schedule.payment = data.value(forKey: "schedule_payment") as! String
                 
                 patient.name = data.value(forKey: "patient_name") as! String
@@ -101,7 +101,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         let schedule = schedules[indexPath.row]
         
         cell.labelPatientName.text = schedule.patient?.name
-        cell.labelTime.text = schedule.time
+        cell.labelTime.text = schedule.time?.time
         cell.labelPhysicianName.text = schedule.physician?.name
         
         return cell
