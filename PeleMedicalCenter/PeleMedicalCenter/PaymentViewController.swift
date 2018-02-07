@@ -25,7 +25,7 @@ class PaymentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         configureTableView()
         
-        payments = ["Cartão", "Dinheiro", "Plano de saúde"]
+        payments = ["Cartão", "Dinheiro"]
         
     }
     

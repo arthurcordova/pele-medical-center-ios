@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -21,59 +22,16 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     let cellIdentifier = "cellSchedule"
     let xibIdentifier = "ScheduleTableViewCell"
     let segueDetail = "segue_schedule_detail"
+    let defaults = UserDefaults.standard
+    let url_schedules = "\(HTTPUtils.URL_MAIN)/agenda/getagendamentos/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        
-        
-        
-        
-//        Alamofire.request(.GET, "https://us-central1-scheduling-tracker.cloudfunctions.net/getPhysicians")
-//            .response { request, response, data, error in
-//                print(request)
-//                print(response)
-//                print(error)
-//        }
+     
+        loadData(url: url_schedules)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        schedules.removeAll()
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Schedule")
-        //request.predicate = NSPredicate(format: "age = %@", "12")
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                let schedule = ScheduleModel()
-                let patient = PatientModel()
-                let physician = PhysicianModel()
-                
-                schedule.date = data.value(forKey: "schedule_date") as! String
-                schedule.time?.time = data.value(forKey: "schedule_time") as! String
-                schedule.payment = data.value(forKey: "schedule_payment") as! String
-                
-                patient.name = data.value(forKey: "patient_name") as! String
-                
-                physician.name = data.value(forKey: "physician_name") as! String
-                physician.specialty = data.value(forKey: "physician_specialty") as! String
-                
-                schedule.patient = patient
-                schedule.physician = physician
-                
-                schedules.append(schedule)
-                
-                self.tableView.reloadData()
-            }
-            
-        } catch {
-            print("Failed")
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -117,6 +75,36 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         if (segue.identifier == segueDetail) {
             let controller = segue.destination as! ScheduleFinalDetailsViewController
             controller.schedule = selectedSchedule
+        }
+    }
+    
+    func loadData(url : String) {
+        self.schedules.removeAll()
+        
+        Alamofire.request("\(url)\(defaults.integer(forKey: "patient_id"))").responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            print("JSON: \(String(describing: response.result.value))") // response serialization result
+            
+            if let data = response.result.value{
+                
+                if  (data as? [[String : AnyObject]]) != nil{
+                    
+                    if let dictionaryArray = data as? Array<Dictionary<String, AnyObject?>> {
+                        if dictionaryArray.count > 0 {
+                            
+                            for i in 0..<dictionaryArray.count{
+                                let json = dictionaryArray[i]
+//                                let schedule = ScheduleModel(json: json)
+//                                self.schedules.append(schedule)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+            self.tableView.reloadData()
         }
     }
     

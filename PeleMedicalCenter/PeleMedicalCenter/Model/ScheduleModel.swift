@@ -15,5 +15,8 @@ class ScheduleModel {
     var payment : String = ""
     var physician: PhysicianModel?
     var patient: PatientModel?
+    var round: String!
+    
+    
     
 }

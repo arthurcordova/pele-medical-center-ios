@@ -24,6 +24,8 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
     let url_dependents = "\(HTTPUtils.URL_MAIN)/paciente/getdependents/"
     let cellIdentifier = "cellPatient"
     let xibIdentifier = "PatientTableViewCell"
+    let segueNextPayment = "segue_next_payment"
+    let segueNextFinal = "segue_next_final"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,25 +70,39 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "segue_next_payment") {
+        if (segue.identifier == segueNextPayment) {
             let controller = segue.destination as! PaymentViewController
             schedule?.patient = selectedPatient
             controller.schedule = schedule
         }
+        if (segue.identifier == segueNextFinal) {
+            let controller = segue.destination as! ScheduleFinalDetailsViewController
+            schedule?.patient = selectedPatient
+            controller.schedule = schedule
+        }
+        
     }
     @IBAction func actionNextStep(_ sender: Any) {
         if (selectedPatient != nil){
             if (filters?.consultTypeName == "CONSULTA PARTICULAR") {
-                performSegue(withIdentifier: "segue_next_final", sender: self)
-            } else {
                 performSegue(withIdentifier: "segue_next_payment", sender: self)
+            } else {
+                performSegue(withIdentifier: "segue_next_final", sender: self)
             }
         }
         
     }
     
     func loadFromServer(url : String) {
+        self.patients.removeAll()
         
+        let mainPatient = PatientModel()
+        mainPatient.id = userSaved.integer(forKey: "patient_id")
+        mainPatient.name = userSaved.string(forKey: "patient_name")!
+        mainPatient.email = userSaved.string(forKey: "patient_email")!
+        
+        self.patients.append(mainPatient)
+            
         Alamofire.request("\(url)\(userSaved.integer(forKey: "patient_id") )").responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response

@@ -100,6 +100,7 @@ class MedicDetailViewController: UIViewController {
             let controller = segue.destination as! PatientListViewController
             schedule?.date = (buttonDate.titleLabel?.text)!
             schedule?.time = timeSelected
+            schedule?.round = roundSelected
             controller.schedule = schedule
             
         } else if (segue.identifier == segueSelectDay) { //SELECT DAY

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Alamofire
+import SwiftyJSON
 
 class ScheduleFinalDetailsViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class ScheduleFinalDetailsViewController: UIViewController {
     @IBOutlet var labelTime: UILabel!
     @IBOutlet var labelPatientName: UILabel!
     @IBOutlet var labelPayment: UILabel!
+    @IBOutlet var viewPayment: UIView!
     
     var schedule: ScheduleModel?
     var filters: FilterModel?
@@ -33,9 +35,18 @@ class ScheduleFinalDetailsViewController: UIViewController {
         labelPhysicianName.text = schedule?.physician?.name
         labelPhysicianSpecialty.text = schedule?.physician?.specialty
         labelDate.text = schedule?.date
-        labelTime.text = schedule?.time?.time
         labelPatientName.text = schedule?.patient?.name
-        labelPayment.text = schedule?.payment
+        
+        if (schedule?.time != nil) {
+            labelTime.text = schedule?.time?.time
+        } else {
+            labelTime.text = schedule?.round
+        }
+        
+        if (schedule?.payment != "") {
+            labelPayment.text = schedule?.payment
+            viewPayment.alpha = 1
+        }
         
     }
 
@@ -52,43 +63,70 @@ class ScheduleFinalDetailsViewController: UIViewController {
         
         saveSchedule(url: url_schedule)
         
-//        StateMainView.setViewIndex(index: 1)
-//
-//        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
-
+    }
+    
+    @IBAction func actionClose(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func actionCancel(_ sender: Any) {
+        let alert = UIAlertController(title: "Cancelar agendamento", message: "Todos os dados do agendamento serão perdidos. Deseja cancelar o agendamento", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "Sim", style: UIAlertActionStyle.default, handler: {
+            (alert: UIAlertAction!) in
+            StateMainView.setViewIndex(index: 0)
+            self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func saveSchedule(url: String) {
-        let parameters: [String: Int] = [
-            "codAgenda" : filters.cityID,
-            "codProcedimento": filters?.consultTypeID,
-            "codCliente": filters.specialtyID,
-            "turno": filters.specialtyID,
-            "data": filters.specialtyID
+        let dtStr = schedule?.date.replacingOccurrences(of: "/", with: "-", options: .literal, range: nil)
+        var roundStr : String!
+        if (schedule?.round == "Manhã") {
+            roundStr = "1"
+        } else if (schedule?.round == "Tarde"){
+            roundStr = "2"
+        } else {
+            roundStr = "0"
+        }
+        
+        var codAgenda : Int!
+        if (schedule?.time != nil) {
+            codAgenda = (schedule?.time!.uuid)!
+        } else {
+            codAgenda = 0
+        }
+        
+        let parameters: [String: Any] = [
+                "codAgenda" : codAgenda,
+                "codProcedimento": (filters?.consultTypeID)!,
+                "codCliente": (schedule?.patient?.id)!,
+                "turno": roundStr,
+                "data": dtStr as! String
             ]
-      
+        
         Alamofire.request(url, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
             print("JSON: \(String(describing: response.result.value))") // response serialization result
-            
-            if let data = response.result.value{
-                if  (data as? [[String : AnyObject]]) != nil{
-                    
-                    if let dictionaryArray = data as? Array<Dictionary<String, AnyObject?>> {
-                        if dictionaryArray.count > 0 {
-                            
-                            for i in 0..<dictionaryArray.count{
-                                let json = dictionaryArray[i]
-                                let clinic = ClinicModel(json: json)
-                                self.list.append(clinic)
-                            }
-                        }
-                    }
-                }
+
+            if((response.result.value) != nil) {
+                let swiftyJsonVar = JSON(response.result.value!)
+                print(swiftyJsonVar)
+                let message = ResponseMessageModel(json: swiftyJsonVar)
+                
+                let alert = UIAlertController(title: "Agendamento", message: (message?.message)!, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {
+                    (alert: UIAlertAction!) in
+                    StateMainView.setViewIndex(index: 1)
+                    self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+                
             }
-            self.pickerView.reloadAllComponents();
+           
         }
     }
  

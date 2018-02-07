@@ -11,6 +11,7 @@
 		8269B67A296AEEC135B73CDC /* Pods_PeleMedicalCenterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB50B138F7A67E5884FB0C2 /* Pods_PeleMedicalCenterTests.framework */; };
 		CD079EE7806374518FB4264F /* Pods_PeleMedicalCenterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497EEEC640CEFA0EA6253883 /* Pods_PeleMedicalCenterUITests.framework */; };
 		F40025C21FF3024A0099F926 /* DialogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40025C11FF3024A0099F926 /* DialogUtils.swift */; };
+		F40A0968202A7A930089D18C /* ResponseMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40A0967202A7A930089D18C /* ResponseMessageModel.swift */; };
 		F4185AE3202A156300A2FF10 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4185AE2202A156300A2FF10 /* TimeModel.swift */; };
 		F418ACD11FBE65160048DA9C /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418ACD01FBE65160048DA9C /* DesignableButton.swift */; };
 		F4191E20202494C300ACA35C /* ClinicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4191E1F202494C300ACA35C /* ClinicViewController.swift */; };
@@ -99,6 +100,7 @@
 		E060FFB3490A726638BB1E9B /* Pods-PeleMedicalCenterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA1977D91BE07882626474EB /* Pods-PeleMedicalCenterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeleMedicalCenterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PeleMedicalCenterUITests/Pods-PeleMedicalCenterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F40025C11FF3024A0099F926 /* DialogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogUtils.swift; sourceTree = "<group>"; };
+		F40A0967202A7A930089D18C /* ResponseMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMessageModel.swift; sourceTree = "<group>"; };
 		F4185AE2202A156300A2FF10 /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
 		F418ACD01FBE65160048DA9C /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		F4191E1F202494C300ACA35C /* ClinicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				F433D67F2027EE3F00EAED06 /* NotificationModel.swift */,
 				F48FCD612028E04300D4EFE6 /* ArriveOrderModel.swift */,
 				F4185AE2202A156300A2FF10 /* TimeModel.swift */,
+				F40A0967202A7A930089D18C /* ResponseMessageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,10 +334,10 @@
 				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
 				F43C69351FFDA372006C7FFE /* ProfileViewController.swift */,
 				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
-				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
 				F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */,
 				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
 				F465C8031FBDE50400321A99 /* PaymentViewController.swift */,
+				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
 				F433D67D2027ECA800EAED06 /* NotificationViewController.swift */,
 				F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */,
 				F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */,
@@ -680,6 +683,7 @@
 				F45AFF431FBCDCB4007D1E57 /* MedicDetailViewController.swift in Sources */,
 				F45AFF401FBB7437007D1E57 /* SpecialtyCollectionViewCell.swift in Sources */,
 				F45AFF711FBD1F61007D1E57 /* PatientListViewController.swift in Sources */,
+				F40A0968202A7A930089D18C /* ResponseMessageModel.swift in Sources */,
 				F4D3890B2018AB5A0010202B /* HTTPUtils.swift in Sources */,
 				F4698B682024F47000BBCB49 /* InsuranceViewController.swift in Sources */,
 				F4185AE3202A156300A2FF10 /* TimeModel.swift in Sources */,
