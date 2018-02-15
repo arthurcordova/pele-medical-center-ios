@@ -47,7 +47,8 @@ class SignupViewController: UIViewController {
         let parameters: [String: String] = [
             "nome" : inputName.text!,
             "email": inputEmail.text!,
-            "senha": inputPwd.text!
+            "senha": inputPwd.text!,
+            "codResponsavel": "0"
         ]
         
         Alamofire.request(url, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in

@@ -61,7 +61,9 @@ class MedicViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         cell.name?.text = physician.name
         cell.specialty?.text = physician.specialty
-        cell.crmID?.text = physician.formatDate(date: physician.nextFreeSchedule)
+        if (physician.nextFreeSchedule != nil){
+            cell.crmID?.text = physician.formatDate(date: physician.nextFreeSchedule)
+        }
         
         let imageHeight = cell.avatar?.frame.height;
         cell.avatar?.layer.borderWidth = 0.5

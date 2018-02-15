@@ -13,7 +13,6 @@ class PatientRecordViewController: UIViewController {
 
     @IBOutlet var inputName: UITextField!
     @IBOutlet var inputGender: UITextField!
-    @IBOutlet var inputBirth: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,30 +24,7 @@ class PatientRecordViewController: UIViewController {
     }
     
     @IBAction func savePatient(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Patient", in: context)
-        let newPatient = NSManagedObject(entity: entity!, insertInto: context)
         
-        newPatient.setValue(inputName.text, forKey: "name")
-        newPatient.setValue(inputGender.text, forKey: "gender")
-        
-        var dateString = "01/01/2009"
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/mm/yyyy"
-        dateFormatter.locale = Locale.init(identifier: "pt_BR")
-        let dateObj = dateFormatter.date(from: dateString)
-       
-        newPatient.setValue(dateObj, forKey: "birth")
-        
-        do {
-            try context.save()
-            self.dismiss(animated: true, completion: nil)
-            
-            performSegueToReturnBack()
-        } catch {
-            print("Failed saving")
-        }
     }
     
     func performSegueToReturnBack()  {
@@ -62,5 +38,7 @@ class PatientRecordViewController: UIViewController {
     @IBAction func closeView(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
     
 }
