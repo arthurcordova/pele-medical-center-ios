@@ -22,6 +22,7 @@
 		F433D6802027EE3F00EAED06 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433D67F2027EE3F00EAED06 /* NotificationModel.swift */; };
 		F433D6852027EF7F00EAED06 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433D6832027EF7F00EAED06 /* NotificationTableViewCell.swift */; };
 		F433D6862027EF7F00EAED06 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F433D6842027EF7F00EAED06 /* NotificationTableViewCell.xib */; };
+		F43A3C6F2039B6F1009B8FE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F43A3C6E2039B6F1009B8FE8 /* GoogleService-Info.plist */; };
 		F43C69321FFC7404006C7FFE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C69311FFC7404006C7FFE /* SignupViewController.swift */; };
 		F43C69341FFC75BB006C7FFE /* RecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C69331FFC75BB006C7FFE /* RecoveryViewController.swift */; };
 		F43C69361FFDA372006C7FFE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C69351FFDA372006C7FFE /* ProfileViewController.swift */; };
@@ -111,6 +112,8 @@
 		F433D67F2027EE3F00EAED06 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		F433D6832027EF7F00EAED06 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		F433D6842027EF7F00EAED06 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		F43A3C6D2039B59F009B8FE8 /* PeleMedicalCenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PeleMedicalCenter.entitlements; sourceTree = "<group>"; };
+		F43A3C6E2039B6F1009B8FE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F43C69311FFC7404006C7FFE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F43C69331FFC75BB006C7FFE /* RecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryViewController.swift; sourceTree = "<group>"; };
 		F43C69351FFDA372006C7FFE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -231,18 +234,13 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		F4191E1E2024948000ACA35C /* Filters */ = {
+		F43A3C6C20370DF9009B8FE8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F4F796831FC87B14006E929F /* PlaceViewController.swift */,
-				F4191E1F202494C300ACA35C /* ClinicViewController.swift */,
-				F4191E232024CF9000ACA35C /* ConsultTypeViewController.swift */,
-				F4698B672024F47000BBCB49 /* InsuranceViewController.swift */,
-				F4A836B92028977600EF70F7 /* SelectDayViewController.swift */,
-				F4A836BF2028DE3300EF70F7 /* SelectArriveViewController.swift */,
-				F4A836BB2028D30700EF70F7 /* SelectTimeViewController.swift */,
+				F4CC13631FC3221D00DF989F /* MainViewController.swift */,
+				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
 			);
-			path = Filters;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		F45AFF721FBD243F007D1E57 /* Model */ = {
@@ -287,6 +285,99 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		F484F5482035EDAE008B0903 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F43A3C6C20370DF9009B8FE8 /* Main */,
+				F484F54F203601F9008B0903 /* Physician */,
+				F484F54E203601E0008B0903 /* Schedule */,
+				F484F54D203601CB008B0903 /* Filter */,
+				F484F54C203601BA008B0903 /* Message */,
+				F484F54B203601AE008B0903 /* Profile */,
+				F484F54A2036019A008B0903 /* Patient */,
+				F484F5492036017C008B0903 /* Login */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F484F5492036017C008B0903 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F4ADB3311FD80F6D00FCD111 /* LoginViewController.swift */,
+				F43C69311FFC7404006C7FFE /* SignupViewController.swift */,
+				F43C69331FFC75BB006C7FFE /* RecoveryViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F484F54A2036019A008B0903 /* Patient */ = {
+			isa = PBXGroup;
+			children = (
+				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
+				F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */,
+			);
+			path = Patient;
+			sourceTree = "<group>";
+		};
+		F484F54B203601AE008B0903 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F43C69351FFDA372006C7FFE /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F484F54C203601BA008B0903 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				F433D67D2027ECA800EAED06 /* NotificationViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		F484F54D203601CB008B0903 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				F4F796831FC87B14006E929F /* PlaceViewController.swift */,
+				F4191E1F202494C300ACA35C /* ClinicViewController.swift */,
+				F4191E232024CF9000ACA35C /* ConsultTypeViewController.swift */,
+				F4698B672024F47000BBCB49 /* InsuranceViewController.swift */,
+				F4A836B92028977600EF70F7 /* SelectDayViewController.swift */,
+				F4A836BF2028DE3300EF70F7 /* SelectArriveViewController.swift */,
+				F4A836BB2028D30700EF70F7 /* SelectTimeViewController.swift */,
+				F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		F484F54E203601E0008B0903 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */,
+				F465C8031FBDE50400321A99 /* PaymentViewController.swift */,
+				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		F484F54F203601F9008B0903 /* Physician */ = {
+			isa = PBXGroup;
+			children = (
+				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
+				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
+			);
+			path = Physician;
+			sourceTree = "<group>";
+		};
+		F484F5502036026F008B0903 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4E77CD91FAC8123007FCAA4 /* Main.storyboard */,
+				F4E77CDE1FAC8123007FCAA4 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F4973E181FBE3C9F00B2655F /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,31 +413,17 @@
 		F4E77CD21FAC8123007FCAA4 /* PeleMedicalCenter */ = {
 			isa = PBXGroup;
 			children = (
-				F4191E1E2024948000ACA35C /* Filters */,
+				F43A3C6D2039B59F009B8FE8 /* PeleMedicalCenter.entitlements */,
 				F40025C01FF2FFE40099F926 /* Utils */,
 				F4973E181FBE3C9F00B2655F /* Component */,
 				F45AFF721FBD243F007D1E57 /* Model */,
 				F47F54101FADFBB500D1A336 /* Cells */,
-				F4E77CD31FAC8123007FCAA4 /* AppDelegate.swift */,
-				F4ADB3311FD80F6D00FCD111 /* LoginViewController.swift */,
-				F43C69311FFC7404006C7FFE /* SignupViewController.swift */,
-				F43C69331FFC75BB006C7FFE /* RecoveryViewController.swift */,
-				F4E77CD51FAC8123007FCAA4 /* MedicViewController.swift */,
-				F43C69351FFDA372006C7FFE /* ProfileViewController.swift */,
-				F45AFF421FBCDCB4007D1E57 /* MedicDetailViewController.swift */,
-				F4973E1B1FBE3EDF00B2655F /* ScheduleFinalDetailsViewController.swift */,
-				F45AFF701FBD1F61007D1E57 /* PatientListViewController.swift */,
-				F465C8031FBDE50400321A99 /* PaymentViewController.swift */,
-				F4E77CD71FAC8123007FCAA4 /* ScheduleViewController.swift */,
-				F433D67D2027ECA800EAED06 /* NotificationViewController.swift */,
-				F45AFF4D1FBD1B86007D1E57 /* PatientRecordViewController.swift */,
-				F45AFF3C1FBB5FD9007D1E57 /* FilterViewController.swift */,
-				F4E77CD91FAC8123007FCAA4 /* Main.storyboard */,
-				F4E77CDE1FAC8123007FCAA4 /* LaunchScreen.storyboard */,
+				F484F5482035EDAE008B0903 /* Controller */,
+				F484F5502036026F008B0903 /* View */,
 				F4E77CDC1FAC8123007FCAA4 /* Assets.xcassets */,
 				F4E77CE11FAC8123007FCAA4 /* Info.plist */,
+				F43A3C6E2039B6F1009B8FE8 /* GoogleService-Info.plist */,
 				F45AFF4A1FBD16A0007D1E57 /* CoreDataPatientModel.xcdatamodeld */,
-				F4CC13631FC3221D00DF989F /* MainViewController.swift */,
 			);
 			path = PeleMedicalCenter;
 			sourceTree = "<group>";
@@ -447,6 +524,14 @@
 					F4E77CCF1FAC8123007FCAA4 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					F4E77CE51FAC8123007FCAA4 = {
 						CreatedOnToolsVersion = 9.0;
@@ -493,6 +578,7 @@
 				F4E77CE01FAC8123007FCAA4 /* LaunchScreen.storyboard in Resources */,
 				F4E77CDD1FAC8123007FCAA4 /* Assets.xcassets in Resources */,
 				F4E77CDB1FAC8123007FCAA4 /* Main.storyboard in Resources */,
+				F43A3C6F2039B6F1009B8FE8 /* GoogleService-Info.plist in Resources */,
 				F46C87AE1FAF402F00596DE5 /* ScheduleTableViewCell.xib in Resources */,
 				F45AFF491FBCFAAF007D1E57 /* TimeCollectionViewCell.xib in Resources */,
 			);
@@ -638,6 +724,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PeleMedicalCenter/Pods-PeleMedicalCenter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -645,6 +732,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -890,6 +978,7 @@
 			baseConfigurationReference = FE5D79047CB7A63D2CE9E5D0 /* Pods-PeleMedicalCenter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PeleMedicalCenter/PeleMedicalCenter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T4H78CRT5T;
 				INFOPLIST_FILE = PeleMedicalCenter/Info.plist;
@@ -907,6 +996,7 @@
 			baseConfigurationReference = A91076BCC42E83DE4A781ED3 /* Pods-PeleMedicalCenter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PeleMedicalCenter/PeleMedicalCenter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T4H78CRT5T;
 				INFOPLIST_FILE = PeleMedicalCenter/Info.plist;

@@ -17,6 +17,4 @@ class ScheduleModel {
     var patient: PatientModel?
     var round: String!
     
-    
-    
 }

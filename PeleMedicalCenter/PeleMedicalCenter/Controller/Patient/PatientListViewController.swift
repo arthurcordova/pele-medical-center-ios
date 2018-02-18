@@ -26,6 +26,7 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
     let xibIdentifier = "PatientTableViewCell"
     let segueNextPayment = "segue_next_payment"
     let segueNextFinal = "segue_next_final"
+    let unwindSegueRegisterPatient = "unwindRegisterPatient"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +41,14 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
         
         loadFromServer(url: url_dependents)
     }
-   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadFromServer(url: url_dependents)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,6 +96,14 @@ class PatientListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         
+    }
+    
+    @IBAction func unwindToPatientList(unwindSegue: UIStoryboardSegue) {
+        print(unwindSegue.identifier ?? "Nenhum segue")
+        if (unwindSegue.identifier == unwindSegueRegisterPatient) {
+            loadFromServer(url: url_dependents)
+        }
+       
     }
     
     func loadFromServer(url : String) {

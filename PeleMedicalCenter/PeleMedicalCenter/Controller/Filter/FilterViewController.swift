@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Firebase
 
 class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -24,11 +25,12 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     let segueDropDownConsultType = "segue_drop_down_consult_type"
     let segueDropDownInsurance = "segue_drop_down_insurance"
     let url_specialties = "\(HTTPUtils.URL_MAIN)/especialidade/getespecialidades"
+    let url_save_token = "\(HTTPUtils.URL_MAIN)/messages/settoken"
     let savedFilter = UserDefaults.standard
     
     var specialties:[SpecialtyModel] = []
     var filters : FilterModel!
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -38,6 +40,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.register(UINib(nibName: xibIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         
         buttonInsurance.isEnabled = false;
+        saveToken(url: url_save_token)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -179,6 +182,30 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
                     let indexPath = self.collectionView.indexPathsForSelectedItems?.last ?? IndexPath(item: index, section: 0)
                     self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: UICollectionViewScrollPosition.centeredHorizontally)
                 }
+            }
+        }
+    }
+    
+    func saveToken(url : String) {
+        
+        let tokeFCM = Messaging.messaging().fcmToken
+        print("FCM InstanceID token: \(String(describing: tokeFCM))")
+        
+        let parameters: [String: Any] = [
+            "codCliente" : savedFilter.integer(forKey: "patient_id"),
+            "token": tokeFCM ?? ""
+        ]
+        
+        Alamofire.request(url, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            print("JSON: \(String(describing: response.result.value))") // response serialization result
+            
+            if let data = response.result.value{
+               
+                print("......TOKEN SAVED ON PMC SERVER......")
+               
             }
         }
     }
