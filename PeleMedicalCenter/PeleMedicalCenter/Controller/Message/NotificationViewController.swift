@@ -18,11 +18,14 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     var notifications : Array<NotificationModel> = []
     var selectedNotification : NotificationModel?
     var filter : FilterModel!
+    var messageID : Int!
     
     let cellIdentifier = "cellNotification"
     let xibIdentifier = "NotificationTableViewCell"
     let defaults = UserDefaults.standard
     let url_notifications = "\(HTTPUtils.URL_MAIN)/messages/getmessages"
+    let url_set_as_read = "\(HTTPUtils.URL_MAIN)/messages/setread/"
+    let url_delete = "\(HTTPUtils.URL_MAIN)/messages/delete/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +67,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedNotification = notifications[indexPath.row]
+        messageID = selectedNotification?.uuid
         tableView.deselectRow(at: indexPath, animated: false)
         showActions()
     }
@@ -74,11 +78,11 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         // 2
         let deleteAction = UIAlertAction(title: "Marcar como lida", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("File Deleted")
+            self.messageActionsData(url: self.url_set_as_read, messageID: self.messageID )
         })
         let saveAction = UIAlertAction(title: "Apagar", style: .destructive, handler: {
             (alert: UIAlertAction!) -> Void in
-            print("File Saved")
+            self.messageActionsData(url: self.url_delete, messageID: self.messageID )
         })
         
         //
@@ -132,6 +136,25 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
                 }
             }
             self.tableView.reloadData()
+        }
+    }
+    
+    func messageActionsData(url : String, messageID: Int) {
+        
+        let parameterURL = "\(url)\(messageID.description)"
+        
+        Alamofire.request(parameterURL, method: HTTPMethod.post, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            print("JSON: \(String(describing: response.result.value))") // response serialization result
+            
+            if let data = response.result.value{
+                
+                
+            }
+            self.loadData(url: self.url_notifications)
+            
         }
     }
     

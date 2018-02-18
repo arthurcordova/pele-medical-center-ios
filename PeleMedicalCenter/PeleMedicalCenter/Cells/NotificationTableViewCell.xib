@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcD-n1-Zxp">
-                                <rect key="frame" x="12" y="8" width="300" height="21"/>
+                                <rect key="frame" x="16" y="16" width="296" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="XnS-Eb-6be"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-Oz-YCd">
-                                <rect key="frame" x="12" y="37" width="218" height="21"/>
+                                <rect key="frame" x="16" y="45" width="214" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Bnm-m7-UIs"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcX-iY-tFc">
-                                <rect key="frame" x="242" y="37" width="70" height="21"/>
+                                <rect key="frame" x="242" y="45" width="70" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="5Br-GZ-6jS"/>
                                     <constraint firstAttribute="height" constant="21" id="g24-qk-CMk"/>
@@ -55,11 +55,11 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dcD-n1-Zxp" secondAttribute="trailing" constant="8" id="AmL-3K-7iR"/>
                             <constraint firstItem="mcX-iY-tFc" firstAttribute="top" secondItem="dcD-n1-Zxp" secondAttribute="bottom" constant="8" id="H5Y-bp-DyH"/>
-                            <constraint firstItem="dcD-n1-Zxp" firstAttribute="top" secondItem="afW-ng-yZY" secondAttribute="top" constant="8" id="JR4-JH-x9H"/>
+                            <constraint firstItem="dcD-n1-Zxp" firstAttribute="top" secondItem="afW-ng-yZY" secondAttribute="top" constant="16" id="JR4-JH-x9H"/>
                             <constraint firstItem="mcX-iY-tFc" firstAttribute="leading" secondItem="wtd-Oz-YCd" secondAttribute="trailing" constant="12" id="VFs-vD-YeZ"/>
                             <constraint firstAttribute="trailing" secondItem="mcX-iY-tFc" secondAttribute="trailing" constant="8" id="ZAG-r5-mD0"/>
-                            <constraint firstItem="dcD-n1-Zxp" firstAttribute="leading" secondItem="afW-ng-yZY" secondAttribute="leading" constant="12" id="dZu-B2-uhq"/>
-                            <constraint firstItem="wtd-Oz-YCd" firstAttribute="leading" secondItem="afW-ng-yZY" secondAttribute="leading" constant="12" id="e5U-i1-IJa"/>
+                            <constraint firstItem="dcD-n1-Zxp" firstAttribute="leading" secondItem="afW-ng-yZY" secondAttribute="leading" constant="16" id="dZu-B2-uhq"/>
+                            <constraint firstItem="wtd-Oz-YCd" firstAttribute="leading" secondItem="afW-ng-yZY" secondAttribute="leading" constant="16" id="e5U-i1-IJa"/>
                             <constraint firstItem="wtd-Oz-YCd" firstAttribute="top" secondItem="dcD-n1-Zxp" secondAttribute="bottom" constant="8" id="tJc-t0-T2f"/>
                         </constraints>
                     </view>
