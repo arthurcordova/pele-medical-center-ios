@@ -1265,7 +1265,7 @@
         <!--Filtros-->
         <scene sceneID="xjs-Ji-xPG">
             <objects>
-                <viewController id="CPQ-3m-PDX" customClass="FilterViewController" customModule="PeleMedicalCenter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeVC" id="CPQ-3m-PDX" customClass="FilterViewController" customModule="PeleMedicalCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsm-hN-V8G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2782,9 +2782,8 @@
         <image name="ic_user_data" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pmp-sw-rLs"/>
         <segue reference="A4h-tH-FGO"/>
-        <segue reference="Kpd-LM-Jzs"/>
+        <segue reference="KyR-qE-hNH"/>
         <segue reference="1Hu-k7-Y6L"/>
         <segue reference="YYt-An-CNq"/>
     </inferredMetricsTieBreakers>

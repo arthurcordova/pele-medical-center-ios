@@ -22,10 +22,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         inputLoginEmail.delegate = self
         inputLoginPwd.delegate = self
-        
+       
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    func checkLogin(){
         let patientID = defaultsUser.integer(forKey: "patient_id")
         if (patientID > 0) {
             self.performSegue(withIdentifier: self.segueLoginOK, sender: nil)
