@@ -1204,7 +1204,7 @@
         <!--Main View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="MainViewController" customModule="PeleMedicalCenter" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainViewController" id="49e-Tb-3d3" customClass="MainViewController" customModule="PeleMedicalCenter" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -2785,6 +2785,6 @@
         <segue reference="A4h-tH-FGO"/>
         <segue reference="KyR-qE-hNH"/>
         <segue reference="1Hu-k7-Y6L"/>
-        <segue reference="YYt-An-CNq"/>
+        <segue reference="Cqg-0m-KNQ"/>
     </inferredMetricsTieBreakers>
 </document>

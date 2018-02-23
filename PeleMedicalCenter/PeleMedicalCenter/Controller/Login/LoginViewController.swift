@@ -22,7 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         inputLoginEmail.delegate = self
         inputLoginPwd.delegate = self
-       
     }
     
     func checkLogin(){

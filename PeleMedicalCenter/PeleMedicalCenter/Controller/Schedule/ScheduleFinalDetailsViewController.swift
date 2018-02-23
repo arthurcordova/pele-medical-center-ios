@@ -121,7 +121,15 @@ class ScheduleFinalDetailsViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {
                     (alert: UIAlertAction!) in
                     StateMainView.setViewIndex(index: 1)
-                    self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+
+                    OperationQueue.main.addOperation {
+                        
+                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "mainViewController") as! MainViewController
+                        self.present(newViewController, animated: true, completion: nil)
+                        
+                    }
+                    
                 }))
                 self.present(alert, animated: true, completion: nil)
                 
